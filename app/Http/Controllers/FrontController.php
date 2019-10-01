@@ -8,6 +8,7 @@ use App\Customer;
 use Illuminate\Support\Facades\Input;
 use App\Trx;
 use App\ItemDes;
+use App\Article;
 use App\MeetingPoint;
 class FrontController extends Controller
 {
@@ -51,7 +52,8 @@ class FrontController extends Controller
         ->groupBy('des_paket.dp_paket')
         ->select('destinasi.nama as namaDes', 'paket.nama as namaPaket', 'paket.id as idPaket', 'paket.harga')
         ->get();
-        $data = array('paket' => $paket);
+        $article = Article::orderBy('created_at', 'asc')->take(4)->get();
+        $data = array('paket' => $paket, 'article' => $article);
         return view("front.home")->with($data);
     }
     public function meeting()

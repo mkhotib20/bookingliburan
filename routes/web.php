@@ -10,14 +10,33 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', 'FrontController@index');
-Route::get('/faq', 'FrontController@faq');
+// Route::get('/{locale}', function ($locale) {
+//     App::setLocale($locale);
+//     echo __('messages.welcome');
+// });
+Route::get('/', function () {
+    return redirect(app()->getLocale());
+});
+Route::get('/faq', function(){
+    return redirect(app()->getLocale().'/faq');
+});
 Route::get('/cek-booking', 'FrontController@cek-booking');
 Route::get('/result', 'FrontController@hasilDestinasi');
 Route::get('/detail', 'FrontController@detailPaket');
 Route::get('/trx/done/{id}', 'FrontController@done');
 Route::get('/trx/print/{id}', 'FrontController@print');
-
+Route::group([
+    'prefix' => '{locale}', 
+    'where' => ['locale' => '[a-zA-Z]{2}'], 
+    'middleware' => 'setlocale'], function() {
+        Route::get('/', 'FrontController@index');
+        Route::get('/faq', 'FrontController@faq');
+        Route::get('/cek-booking', 'FrontController@cek-booking');
+        Route::get('/result', 'FrontController@hasilDestinasi');
+        Route::get('/detail', 'FrontController@detailPaket');
+        Route::get('/trx/done/{id}', 'FrontController@done');
+        Route::get('/trx/print/{id}', 'FrontController@print');
+    });
 Route::prefix('admin')->group(function () {
     Route::resource('/', 'PaketController')->middleware('admin_auth');
     Route::resource('destinasi', 'AdminDestinasiController')->middleware('admin_auth');

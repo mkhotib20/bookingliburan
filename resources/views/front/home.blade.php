@@ -25,7 +25,7 @@
               </a>-->
         </div>
         <div class="carousel-caption d-md-block bg-crs">
-            <h2 class="main-title">Kami menyediakan harga terbaik dari berbagai destinasi</h2>
+            <h2 class="main-title">@lang('messages.welcome')</h2>
             <p>Temukan lebih dari 100 destinasi wisata</p>
             <form id="formCari" action="{{url('result')}} " method="GET">
             <input type="hidden" name="jkjaBA782hJA" value="{{csrf_token()}}">
@@ -179,6 +179,35 @@
             </div>
         </div>
     </section>
+    <section class="content-sec">
+        <div class="container">
+            <div class="sec-title">
+                <h2>Our article</h2>
+                <div class="line mx-auto"></div>
+            </div>
+            <div class="sec-content">
+                <div class="row">
+                    <div class="owl-carousel owl-theme owl-loaded">
+                        @foreach($article as $key => $val)
+                        <div class="col-md-12 item">
+                            {{-- <a href="{{url('detail?jkjaBA782hJA='.csrf_token().'&id_paket='.$val->idPaket)}} "> --}}
+                                <div class="card card-paket">
+                                    <div class="box-img"><img src="{{asset('public/uploads/img_article/'.$val->cover_img)}}" alt=""></div>
+                                    <div class="img-cpt">
+                                        <h4>{{$val->title}}</h4>
+                                        <?php echo  substr($val->content,0,30)  ?>
+                                        <div style="opacity: 0.6" ><span class="fas fa-eye"></span> {{$val->views}} </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        @endforeach
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
     @endsection
     @section('custom-script')
     <script>
@@ -200,7 +229,6 @@
                 1000:{
                     items:3,
                     nav:true,
-                    loop:false,
                     navText:["<i class='fas fa-long-arrow-alt-left'></i>","<i class='fas fa-long-arrow-alt-right'></i>" ],
                 }
             }
