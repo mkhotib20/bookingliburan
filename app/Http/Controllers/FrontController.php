@@ -44,6 +44,21 @@ class FrontController extends Controller
         $data = array('trx' => $trx[0], 'itd' => $itd);
         return view("front.print")->with($data);
     }
+    public function detailArticle($slug)
+    {
+        // $clientIP = request()->ip();
+        $hour = date('h');
+        $sample_rate = 20; 
+        $art = Article::where('slug', $slug)->firstOrFail();
+        if (mt_rand(1,$sample_rate) == 1) {
+            $art->views = $art->views+1;
+            $art->save();
+        }
+        $articles = Article::orderBy('created_at', 'desc')->take(4)->get();
+        $data = array('art' => $art, 'meta' => $art->title, 'new' => $articles);
+        return view("front.detailArt")->with($data);
+        // return $art;
+    }
     public function index()
     {
         $paket = DB::table('des_paket')
@@ -52,7 +67,7 @@ class FrontController extends Controller
         ->groupBy('des_paket.dp_paket')
         ->select('destinasi.nama as namaDes', 'paket.nama as namaPaket', 'paket.id as idPaket', 'paket.harga')
         ->get();
-        $article = Article::orderBy('created_at', 'asc')->take(4)->get();
+        $article = Article::orderBy('created_at', 'desc')->take(4)->get();
         $data = array('paket' => $paket, 'article' => $article);
         return view("front.home")->with($data);
     }
@@ -69,7 +84,7 @@ class FrontController extends Controller
         ->where('des_paket.dp_paket', $id)
         ->select('destinasi.*', 'paket.id as paketId', 'paket.nama as namaPaket', 'paket.harga as hargaP', 'paket.desc')
         ->get();
-        $data = array('pd' => $pd);
+        $data = array('pd' => $pd, 'meta' => $pd[0]->namaPaket);
         return view("front.detail")->with($data);
     }
     public function hasilDestinasi()

@@ -166,7 +166,7 @@
                                         <div class="price">Rp. {{number_format($val->harga, '0', '.', ',')}}</div></div>
                                     <div class="img-cpt">
                                         <h4>{{$val->namaPaket}}</h4>
-                                        <p>Destinasi : <i class='fas fa-long-arrow-alt-left'></i>, Semeru </p>
+                                        <p>Destinasi :  </p>
                                         <div class="location"><span class="fas fa-map-pin"></span> Malang</div>
                                     </div>
                                 </div>
@@ -190,12 +190,16 @@
                     <div class="owl-carousel owl-theme owl-loaded">
                         @foreach($article as $key => $val)
                         <div class="col-md-12 item">
-                            {{-- <a href="{{url('detail?jkjaBA782hJA='.csrf_token().'&id_paket='.$val->idPaket)}} "> --}}
+                            <a href="{{url('article/'.$val->slug)}} ">
                                 <div class="card card-paket">
-                                    <div class="box-img"><img src="{{asset('public/uploads/img_article/'.$val->cover_img)}}" alt=""></div>
+                                    <div class="box-img"><div style="
+                                            background: url('{{asset('public/uploads/img_article/'.$val->cover_img)}}') center no-repeat; 
+                                            height: 250px;
+                                            background-size: cover;
+                                    " >
+                                    </div></div>
                                     <div class="img-cpt">
                                         <h4>{{$val->title}}</h4>
-                                        <?php echo  substr($val->content,0,30)  ?>
                                         <div style="opacity: 0.6" ><span class="fas fa-eye"></span> {{$val->views}} </div>
                                     </div>
                                 </div>
@@ -220,11 +224,13 @@
             responsive:{
                 0:{
                     items:1,
-                    nav:true
+                    nav:true,
+                    navText:["<i class='fas fa-long-arrow-alt-left'></i>","<i class='fas fa-long-arrow-alt-right'></i>" ],
                 },
                 600:{
                     items:2,
-                    nav:false
+                    nav:false,
+                    navText:["<i class='fas fa-long-arrow-alt-left'></i>","<i class='fas fa-long-arrow-alt-right'></i>" ],
                 },
                 1000:{
                     items:3,

@@ -18,7 +18,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $data = array('article' => Article::all());
+        $data = array('article' => Article::orderBy('created_at', 'desc')->get());
         return view('admin.article')->with($data);
     }
 

@@ -1,10 +1,16 @@
+<?php
+$meta_sf = 'Sebuah platform yang menyediakan paket liburan daerah Jawa timur. Malang, banywangi dan sekitarnya. Anda akan mendapatkan harga terbaik untuk liburan tanpa perlu khawatir akan fasilitas pendukung, seperti Hotel, sewa mobil dan antar jemput fasilitas transportasi umum, seperti terminal bandara, atau stasiun.';
+$meta_tag = (isset($meta)) ? $meta.' | '.$meta_sf :  $meta_sf;
+$title = (isset($meta)) ? $meta.' - Booking Liburan' : 'Booking Liburan | Temukan harga terbaik untuk liburanmu' ;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Booking Liburan | Temukan harga terbaik untuk liburanmu</title>
+    <meta name="description" content="{{$meta_tag}} ">
+    <title>{{$title}}</title>
     <link rel="stylesheet" href="{{asset('public/front/css/bootstrap.min.css')}} ">
     <link rel="stylesheet" href="{{asset('public/front/css/style.css')}} ">
     <link rel="stylesheet" href="{{asset('public/front/css/jquery-ui.css')}} ">
@@ -27,7 +33,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-        <a class="navbar-brand" href="#"><img style="width: 70px" src="{{asset('public/front/logo-transparan.png')}}" alt=""></a>
+        <a class="navbar-brand" href="{{url('')}}"><img style="width: 70px" src="{{asset('public/front/logo-transparan.png')}}" alt=""></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>

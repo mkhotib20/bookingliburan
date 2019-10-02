@@ -228,6 +228,9 @@ footer{
 }
 
 @media(max-width: 991px){
+  .box-img{
+    height: 50px;
+  }
   .ph-title{
     margin-top: 100px;
     font-size: 3em;

@@ -23,6 +23,7 @@ Route::get('/faq', function(){
 Route::get('/cek-booking', 'FrontController@cek-booking');
 Route::get('/result', 'FrontController@hasilDestinasi');
 Route::get('/detail', 'FrontController@detailPaket');
+Route::get('/article/{id}', 'FrontController@detailArticle');
 Route::get('/trx/done/{id}', 'FrontController@done');
 Route::get('/trx/print/{id}', 'FrontController@print');
 Route::group([
