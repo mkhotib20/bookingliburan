@@ -79,7 +79,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <img src="{{asset('public/admin')}}/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Administrator</a>
+          <a href="#" class="d-block">{{ Auth::user()->name}}</a>
         </div>
       </div>
 
@@ -118,6 +118,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </p>
             </a>
           </li>
+          @if(Auth::user()->role == 1)
           <li class="nav-item">
             <a href="{{url('mitra/article')}}" class="nav-link ">
               <i class="nav-icon fas fa-book"></i>
@@ -126,6 +127,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="{{url('mitra/article')}}" class="nav-link ">
+              <i class="nav-icon fas fa-users"></i>
+              <p>
+                Manajemen Mitra
+              </p>
+            </a>
+          </li>
+          @endif
         </ul>
       </nav>
     </div>
