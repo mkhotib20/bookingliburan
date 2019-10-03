@@ -48,8 +48,12 @@ class FrontController extends Controller
     {
         // $clientIP = request()->ip();
         $hour = date('h');
-        $sample_rate = 20; 
+        $sample_rate = 10; 
         $art = Article::where('slug', $slug)->firstOrFail();
+        if ($art->views==0) {
+            $art->views = $art->views+1;
+            $art->save();
+        }
         if (mt_rand(1,$sample_rate) == 1) {
             $art->views = $art->views+1;
             $art->save();

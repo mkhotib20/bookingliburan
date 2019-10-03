@@ -29,8 +29,7 @@
                         <h4>Artikel terbaru</h4>
                         <div class="line"></div>
                         @foreach ($new as $item => $val)
-
-                            <a href="#">{{$val->title}}</a> <br>
+                            <a href="{{url('article/'.$val->slug)}} ">{{$val->title}}</a> <br>
                         @endforeach
                     </div>
                 </div>
