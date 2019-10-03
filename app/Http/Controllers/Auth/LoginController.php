@@ -20,6 +20,7 @@ class LoginController extends Controller
 
     use AuthenticatesUsers {
         redirectPath as laravelRedirectPath;
+        showLoginForm as laravelShowLoginForm;
     }
 
     /**
@@ -27,6 +28,10 @@ class LoginController extends Controller
      *
      * @var string
      */
+    public function showLoginForm()
+    {
+        return back();
+    }
     protected $redirectTo = '/';
     public function redirectPath()
     {

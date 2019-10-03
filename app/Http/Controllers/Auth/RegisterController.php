@@ -22,7 +22,13 @@ class RegisterController extends Controller
     |
     */
 
-    use RegistersUsers;
+    use RegistersUsers{
+        showRegistrationForm as laravelRegisterForm;
+    }
+    public function showRegistrationForm()
+    {
+        return back();
+    }
 
     /**
      * Where to redirect users after registration.
