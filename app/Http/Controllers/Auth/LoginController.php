@@ -33,7 +33,8 @@ class LoginController extends Controller
         // Do your logic to flash data to session...
         session()->flash('msg', 'Welcome to bookingliburan.com');
         // Return the results of the method we are overriding that we aliased.
-        return $this->laravelRedirectPath();
+        // return $this->laravelRedirectPath();
+        return '/'.app()->getLocale();
     }
 
     /**

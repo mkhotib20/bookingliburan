@@ -49,7 +49,7 @@ Route::prefix('mitra')->group(function () {
     Route::resource('paket', 'PaketController')->middleware('auth:admin');
 });
 
-Route::prefix('mitra')->group(function () {
+Route::prefix('user')->group(function () {
     Auth::routes();
 });
 
