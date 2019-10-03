@@ -49,8 +49,10 @@ Route::prefix('mitra')->group(function () {
     Route::resource('paket', 'PaketController')->middleware('auth:admin');
 });
 
+Route::prefix('mitra')->group(function () {
+    Auth::routes();
+});
 
-Auth::routes();
 Route::prefix('v1/admin/rbac/auth')->group(function () {
     // Route::get('/', 'AdminController@index')->name('admin.dashboard');
     // Route::get('dashboard', 'AdminController@index')->name('admin.dashboard');
