@@ -38,18 +38,27 @@ Route::group([
         Route::get('/trx/done/{id}', 'FrontController@done');
         Route::get('/trx/print/{id}', 'FrontController@print');
     });
-Route::prefix('admin')->group(function () {
-    Route::resource('/', 'PaketController')->middleware('admin_auth');
-    Route::resource('destinasi', 'AdminDestinasiController')->middleware('admin_auth');
-    Route::resource('article', 'ArticleController')->middleware('admin_auth');
-    Route::resource('kota', 'KotaController')->middleware('admin_auth');
-    Route::get('paket/list-destinasi/{id}', 'PaketController@listDestinasi')->middleware('admin_auth');
-    Route::get('paket/delDp/{id}', 'PaketController@delDp')->middleware('admin_auth');
-    Route::post('paket/tambah-pd', 'PaketController@tPd')->middleware('admin_auth');
-    Route::resource('paket', 'PaketController')->middleware('admin_auth');
+Route::prefix('mitra')->group(function () {
+    Route::resource('/', 'PaketController')->middleware('auth:admin');
+    Route::resource('destinasi', 'AdminDestinasiController')->middleware('auth:admin');
+    Route::resource('article', 'ArticleController')->middleware('auth:admin');
+    Route::resource('kota', 'KotaController')->middleware('auth:admin',['only' => 'index','edit']);
+    Route::get('paket/list-destinasi/{id}', 'PaketController@listDestinasi')->middleware('auth:admin');
+    Route::get('paket/delDp/{id}', 'PaketController@delDp')->middleware('auth:admin');
+    Route::post('paket/tambah-pd', 'PaketController@tPd')->middleware('auth:admin');
+    Route::resource('paket', 'PaketController')->middleware('auth:admin');
 });
 
 
 Auth::routes();
+Route::prefix('v1/admin/rbac/auth')->group(function () {
+    // Route::get('/', 'AdminController@index')->name('admin.dashboard');
+    // Route::get('dashboard', 'AdminController@index')->name('admin.dashboard');
+    Route::get('register', 'AdminController@create')->name('admin.register');
+    Route::post('register', 'AdminController@store')->name('admin.register.store');
+    Route::get('login', 'Auth\Admin\LoginController@login')->name('admin.auth.login');
+    Route::post('login', 'Auth\Admin\LoginController@loginAdmin')->name('admin.auth.loginAdmin');
+    Route::post('logout', 'Auth\Admin\LoginController@logout')->name('admin.auth.logout');
+  });
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');

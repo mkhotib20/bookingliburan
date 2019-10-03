@@ -1,7 +1,6 @@
 <?php
-
+//  5.5, 5.6
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Authentication Defaults
@@ -12,12 +11,10 @@ return [
     | as required, but they're a perfect start for most applications.
     |
     */
-
     'defaults' => [
         'guard' => 'web',
         'passwords' => 'users',
     ],
-
     /*
     |--------------------------------------------------------------------------
     | Authentication Guards
@@ -34,28 +31,24 @@ return [
     | Supported: "session", "token"
     |
     */
-
     'guards' => [
         'web' => [
             'driver' => 'session',
             'provider' => 'users',
         ],
-
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
-            'hash' => false,
         ],
-        'auth_admin' => [
-            'driver' => 'session',
-            'provider' => 'users',
-        ],
-        'auth_customer' => [
-            'driver' => 'session',
-            'provider' => 'accounts',
-        ],
+        'admin' => [
+           'driver' => 'session',
+           'provider' => 'admins',
+       ],
+       'admin-api' => [
+           'driver' => 'token',
+           'provider' => 'admins',
+       ],
     ],
-
     /*
     |--------------------------------------------------------------------------
     | User Providers
@@ -72,27 +65,20 @@ return [
     | Supported: "database", "eloquent"
     |
     */
-
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
         ],
-        'auth_admin' => [
+        'admins' => [
             'driver' => 'eloquent',
-            'model' => App\AuthAdmin::class,
+            'model' => App\Admin::class,
         ],
-        'auth_customer' => [
-            'driver' => 'eloquent',
-            'model' => App\AuthCustomer::class,
-        ],
-
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
     ],
-
     /*
     |--------------------------------------------------------------------------
     | Resetting Passwords
@@ -107,13 +93,16 @@ return [
     | they have less time to be guessed. You may change this as needed.
     |
     */
-
     'passwords' => [
         'users' => [
             'provider' => 'users',
             'table' => 'password_resets',
             'expire' => 60,
         ],
+        'admins' => [
+            'provider' => 'admins',
+            'table' => 'password_resets',
+            'expire' => 15,
+        ],
     ],
-
 ];

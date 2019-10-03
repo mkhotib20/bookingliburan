@@ -47,12 +47,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <span class="float-right text-muted text-sm">12 hours</span>
           </a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item"  href="{{ route('logout') }}"
+          <a class="dropdown-item"  href="{{ route('admin.auth.logout') }}"
           onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
            {{ __('Logout') }}
        </a>
-       <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+       <form id="logout-form" action="{{ route('admin.auth.logout') }}" method="POST" style="display: none;">
            @csrf
        </form>
           <div class="dropdown-divider"></div>
@@ -87,7 +87,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <li class="nav-item">
-                <a href="{{url('admin/transaksi')}}" class="nav-link ">
+                <a href="{{url('mitra/transaksi')}}" class="nav-link ">
                   <i class="nav-icon fas fa-th"></i>
                   <p>
                    Transaksi
@@ -95,7 +95,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </a>
               </li>
           <li class="nav-item">
-            <a href="{{url('admin/destinasi')}}" class="nav-link ">
+            <a href="{{url('mitra/destinasi')}}" class="nav-link ">
               <i class="nav-icon fas fa-map"></i>
               <p>
                 Destinasi
@@ -103,7 +103,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{url('admin/kota')}}" class="nav-link ">
+            <a href="{{url('mitra/kota')}}" class="nav-link ">
               <i class="nav-icon fas fa-map-marker"></i>
               <p>
                 Kota
@@ -111,7 +111,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{url('admin/paket')}}" class="nav-link ">
+            <a href="{{url('mitra/paket')}}" class="nav-link ">
               <i class="nav-icon fas fa-briefcase"></i>
               <p>
                 Paket
@@ -119,7 +119,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{url('admin/article')}}" class="nav-link ">
+            <a href="{{url('mitra/article')}}" class="nav-link ">
               <i class="nav-icon fas fa-book"></i>
               <p>
                 Article
