@@ -51,7 +51,7 @@ $title = (isset($meta)) ? $meta.' - Booking Liburan' : 'Booking Liburan | Temuka
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="https://wa.me/6283831314139?text=Halo, saya ingin bertanya tentang Bookingliburan.com" target="_blank"><span class="fab fa-whatsapp"></span> Whatsapp</a>
+                    <a class="nav-link" href="https://wa.me/6282245250240?text=Halo, saya ingin bertanya tentang Bookingliburan.com" target="_blank"><span class="fab fa-whatsapp"></span> Whatsapp</a>
                 </li>
                 @if(!Auth::check() || Auth::user()->role == 0)
                 <li class="nav-item">
@@ -102,29 +102,42 @@ $title = (isset($meta)) ? $meta.' - Booking Liburan' : 'Booking Liburan | Temuka
                     <table class="foot-tb">
                         <tr>
                             <td><span class="fas fa-map"></span></td>
-                            <td>Jl. Kepuit No 24 Sukolilo, Surabaya</td>
+                            <td>Perumahan Griya Shanta Blok H235, Lowokwaru <br>  Kota Malang, Jawa Timur </td>
                         </tr>
                         <tr>
                             <td><span class="fas fa-phone"></span></td>
-                            <td>08388293829</td>
+                            <td>+62 822 4525 0240</td>
                         </tr>
                         <tr>
                             <td><span class="fas fa-envelope"></span></td>
-                            <td>08388293829</td>
+                            <td><a style="color: white" href="mailto:bookingliburancs@gmail.com">bookingliburancs@gmail.com</a></td>
                         </tr>
                     </table>
                 </div>
                 <div class="col-md-4 my-2">
                     <h5>Produk</h5>
                     <div class="line white"></div>
+                    <ul class="footer-item">
+                        <li><a href="">Paket Liburan</a></li>
+                        <li><a href="">Sewa Mobil</a></li>
+                        <li><a href="">Sewa Villa</a></li>
+                    </ul>
                 </div>
                 <div class="col-md-4 my-2">
                     <h5>Perusahaan</h5>
                     <div class="line white"></div>
+                    <ul class="footer-item">
+                        <li><a href="">Mengenai kami</a></li>
+                        <li><a href="">Pendaftaran Mitra</a></li>
+                        <li><a href="">Hubungi Kami</a></li>
+                    </ul>
                 </div>
             </div>
         </div>
     </footer>
+    <div style="width: 100%; height: auto; color: white; background-color: black; padding: 10px">
+        <center>Copyright © 2019 Bookingliburan.com. All Rights Reserved</center>
+    </div>
     <div class="modal fade" id="cekBooking" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
     <div class="modal-dialog" role="document">

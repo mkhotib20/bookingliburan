@@ -24,7 +24,7 @@
               </h3>
               <!-- tools box -->
               <div class="card-tools">
-                <a href="{{url('admin/article/create')}}" style="color: green" class="btn btn-tool btn-sm" >
+                <a href="{{url('mitra/article/create')}}" style="color: green" class="btn btn-tool btn-sm" >
                   <i class="fas fa-plus"></i> Artikel</a>
               </div>
               <!-- /. tools -->

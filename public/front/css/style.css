@@ -226,7 +226,13 @@ footer{
   text-align: center;
   color: #fff;
 }
-
+.footer-item{
+  list-style: none;
+  padding: 0;
+}
+.footer-item a{
+  color: white;
+}
 @media(max-width: 991px){
   .box-img{
     height: 50px;

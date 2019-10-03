@@ -25,7 +25,7 @@
               </h3>
               <!-- tools box -->
               <div class="card-tools">
-                <a href="{{url('admin/article')}}" class="btn btn-tool btn-sm">
+                <a href="{{url('mitra/article')}}" class="btn btn-tool btn-sm">
                   <i class="fas fa-arrow-left"></i> Back</a>
                   <a id="save" style="color:green; cursor: pointer" class="btn btn-tool btn-sm">
                     <i class="fas fa-save"></i> Save</a>
@@ -34,7 +34,7 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body pad">
-                    <form enctype="multipart/form-data" id="thisForm" action="{{url('admin/article')}}" method="POST">
+                    <form enctype="multipart/form-data" id="thisForm" action="{{url('mitra/article')}}" method="POST">
                         @csrf
                         <input type="hidden" value="{{$id}}" name="id">
               <div class="row">
