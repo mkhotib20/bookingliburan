@@ -66,85 +66,20 @@
             </div>
             <div class="sec-content">
                 <div class="row">
-                    <div class="col-6 col-lg-2 my-2">
+                    <div v-for="service in services" class="col-6 col-lg-2 my-2">
                         <a href="#">
                             <div class="card-shell">
                                 <div class="card card-1">
-                                    <img class="img-srv" src="{{asset('public/front/icon/paket_wisata.svg')}}" alt="">
+                                    <img class="img-srv" v-bind:src="service.icon" alt="">
+                                    <br>
+                                    <center><p><b>@{{service.label}}</b></p></center>
                                 </div>
-                                <div class="card-title px-3">
-                                    <p><b>Paket Wisata</b></p>
-                                    <div class="line cw mx-auto"></div>
+                                <div class="px-3">
+                                    {{-- <div class="line cw mx-auto"></div> --}}
                                 </div>
                             </div>
                         </a>
                     </div>
-                    <div class="col-6 col-lg-2 my-2">
-                        <a href="#">
-                            <div class="card-shell">
-                                <div class="card card-1">
-                                    <img class="img-srv" src="{{asset('public/front/icon/mobil.svg')}}" alt="">
-                                </div>
-                                <div class="card-title px-3">
-                                    <p><b>Sewa Mobil</b></p>
-                                    <div class="line cw mx-auto"></div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-6 col-lg-2 my-2">
-                        <a href="#">
-                            <div class="card-shell">
-                                <div class="card card-1">
-                                    <img class="img-srv" src="{{asset('public/front/icon/outbond.svg')}}" alt="">
-                                </div>
-                                <div class="card-title px-3">
-                                    <p><b>Outbond</b></p>
-                                    <div class="line cw mx-auto"></div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-6 col-lg-2 my-2">
-                        <a href="#">
-                            <div class="card-shell">
-                                <div class="card card-1">
-                                    <img class="img-srv" src="{{asset('public/front/icon/tiket.svg')}}" alt="">
-                                </div>
-                                <div class="card-title px-3">
-                                    <p><b>Tiket Event</b></p>
-                                    <div class="line cw mx-auto"></div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-6 col-lg-2 my-2">
-                        <a href="#">
-                            <div class="card-shell">
-                                <div class="card card-1">
-                                    <img class="img-srv" src="{{asset('public/front/icon/motor.svg')}}" alt="">
-                                </div>
-                                <div class="card-title px-3">
-                                    <p><b>Sewa Motor</b></p>
-                                    <div class="line cw mx-auto"></div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-6 col-lg-2 my-2">
-                        <a href="#">
-                            <div class="card-shell">
-                                <div class="card card-1">
-                                    <img class="img-srv" src="{{asset('public/front/icon/vila.svg')}}" alt="">
-                                </div>
-                                <div class="card-title px-3">
-                                    <p><b>Sewa Villa</b></p>
-                                    <div class="line cw mx-auto"></div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
                 </div>
             </div>
         </div>
@@ -253,6 +188,14 @@ Vue.component('loading', VueLoading)
                 mode: 'single',
                 selectedDate: new Date("22/09/2019"),
                 highlight: true,
+                services: [
+                    {label: "Paket Wisata", icon: "{{asset('public/front/icon/')}}/paket_wisata.svg"},
+                    {label: "Sewa Mobil", icon: "{{asset('public/front/icon/')}}/mobil.svg"},
+                    {label: "Outbond", icon: "{{asset('public/front/icon/')}}/outbond.svg"},
+                    {label: "Tiket Event", icon: "{{asset('public/front/icon/')}}/tiket.svg"},
+                    {label: "Sewa Motor", icon: "{{asset('public/front/icon/')}}/motor.svg"},
+                    {label: "Sewa Villa", icon: "{{asset('public/front/icon/')}}/vila.svg"},
+                ],
             }
         })
         $(document).ready(function(){
