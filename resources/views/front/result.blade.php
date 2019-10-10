@@ -55,7 +55,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><b>Destinasi</b></td>
+                                    <td><b>Harga tiap pax</b></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -82,8 +82,8 @@
                                 <div class="row-des">
                                     <table class="table table-striped" style="width: 100%">
                                         <tr>
-                                            <td><h4>@{{dest.nama}}</h4>
-                                                <p>Kota @{{dest.namaKota}} </p>
+                                            <td><h4>@{{dest.pp_pax}} Pax</h4>
+                                                <p>Rp. @{{dest.pp_price}} </p>
                                             </td>
                                             <td style="width: 10%"><button v-on:click="select(dest.nama, dest.tiket, dest.id)" v-bind:class="{'btn-success': isSelected(dest.id)}" class="btn" style="width: 100%" v-html="txt(dest.id)"></button></td>
                                         </tr>
@@ -225,7 +225,7 @@
                 )) .catch(error => {
                     console.log(error)
                 })
-                axios.get(app.base_url+'/pd/'+app.paketId).then(response => (
+                axios.get(app.base_url+'/pp/'+app.paketId).then(response => (
                     app.paketDes = response.data
                 )) .catch(error => {
                     console.log(error)

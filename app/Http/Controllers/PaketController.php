@@ -139,6 +139,15 @@ class PaketController extends Controller
         ->get();
         return $pd;
     }
+    public function json_pp($id)
+    {
+        $pd = DB::table('paket_pax')
+        ->join('paket', 'paket.id', '=', 'paket_pax.pp_paket')
+        ->where('paket_pax.pp_paket', $id)
+        ->select('paket.id as paketId', 'paket_pax.*')
+        ->get();
+        return $pd;
+    }
 
     /**
      * Remove the specified resource from storage.
