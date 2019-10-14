@@ -85,7 +85,7 @@
                                             <td><h4>@{{dest.pp_pax}} Pax</h4>
                                                 <p>Rp. @{{dest.pp_price}} </p>
                                             </td>
-                                            <td style="width: 10%"><button v-on:click="select(dest.nama, dest.tiket, dest.id)" v-bind:class="{'btn-success': isSelected(dest.id)}" class="btn" style="width: 100%" v-html="txt(dest.id)"></button></td>
+                                            <td style="width: 10%"><button v-on:click="select(dest.pp_pax, dest.pp_price,dest.pp_id)" v-bind:class="{'btn-success': orders.id==dest.pp_id}" class="btn" style="width: 100%" v-html="txt(dest.pp_id)"></button></td>
                                         </tr>
                                     </table>
                                 </div>
@@ -207,7 +207,7 @@
                 ok: true,
                 destinasi: [],
                 paketDes: [],
-                orders: [],
+                orders: {id: 0, nama: '', price: 0},
                 selectedDes: [],
 
                 reks: [
@@ -218,13 +218,13 @@
             },
             mounted () {
                 var app = this   
-                axios.get(app.base_url+'/paket/'+app.paketId).then(response => (
-                    app.paket = response.data,
-                    app.orders.push({name: app.paket.nama, price: app.paket.harga, id:0}),
-                    console.log(app.orders)
-                )) .catch(error => {
-                    console.log(error)
-                })
+                // axios.get(app.base_url+'/paket/'+app.paketId).then(response => (
+                //     app.paket = response.data,
+                //     app.orders.push({name: app.paket.nama, price: app.paket.harga, id:0}),
+                //     console.log(app.orders)
+                // )) .catch(error => {
+                //     console.log(error)
+                // })
                 axios.get(app.base_url+'/pp/'+app.paketId).then(response => (
                     app.paketDes = response.data
                 )) .catch(error => {
@@ -249,7 +249,7 @@
                             mp = el.biaya
                         }
                     });
-                    var sum = this.orders.reduce((acc, item) => acc+item.price, 0)
+                    var sum = this.orders.price
                     return sum+mp
                 },
                 sisa(){
@@ -259,7 +259,7 @@
             },
             methods:{
                 txt: function(id){
-                    if (this.selectedDes.includes(id)) {
+                    if (this.orders.id == id) {
                         return '<i class="fas fa-check"></i>'
                     }
                     else{
@@ -290,30 +290,9 @@
                         }
                 },
                 select:function(nm, prc, idd){
-                    if (!this.selectedDes.includes(idd)) {
-                        var max = this.paket.kuota
-                        var lt = this.selectedDes.length
-                        if (max>lt) {
-                            this.orders.push({name: nm, price: prc, id: idd})       
-                            this.selectedDes.push(idd)
-                        }   
-                        else{
-                            alert('maksimal '+ this.paket.kuota)
-                        }
-                    }else{
-                        for (let i = 0; i < this.selectedDes.length; i++) {
-                            if (idd == this.selectedDes[i]) {
-                                this.selectedDes.splice(i,1)
-                            }
-                        }
-                        for (let i = 0; i < this.orders.length; i++) {
-                            if (idd == this.orders[i].id) {
-                                this.orders.splice(i,1)
-                            }
-                            
-                        }
-                    }
-                    
+                    this.orders.nama = nm
+                    this.orders.price = prc
+                    this.orders.id = idd
                 },
                 numformat: function(num){
                     return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
