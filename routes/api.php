@@ -28,4 +28,5 @@ Route::group(['as' => 'api.'], function () {
     Route::get('/paket/{id}', 'PaketController@json_paket_wh');
     Route::get('/pd/{id}', 'PaketController@json_pd');
     Route::get('/pp/{id}', 'PaketController@json_pp');
+    Route::get('/rek', 'BankController@json_rek');
 });

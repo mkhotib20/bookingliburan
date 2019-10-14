@@ -94,7 +94,7 @@ class FrontController extends Controller
     public function hasilDestinasi()
     {
         $id_paket = $_GET['id_paket'];
-        if (isset($_GET['tgl'])) {
+        if ($_GET['tgl']!='') {
             $tgl = $this->swap($_GET['tgl']);
         }
         else{

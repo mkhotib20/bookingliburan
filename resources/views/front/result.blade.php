@@ -40,8 +40,8 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><b>Kuota Destinasi</b></td>
-                                    <td v-bind:style="[sisa==paket.kuota ? {color:'green'} : {color:'red'}]"> @{{sisa}}/ @{{paket.kuota}}</td>
+                                    <td><b>Jumlah Pax</b></td>
+                                    <td> @{{orders.nama}} Pax</td>
                                 </tr>
                                 <tr>
                                     <td><b>Pilih Meeting Poin</b></td>
@@ -158,9 +158,9 @@
                                     <td style="width: 70%"> 
                                         <div class="form__group">
                                             <select v-model="selectedrek" class="form__field" name="" id="">
-                                                <option v-for="rek in reks" :value="rek.rekening">@{{rek.bank}}</option>
+                                                <option v-for="rek in reks" :value="rek.rekening">@{{rek.bank_name}}</option>
                                             </select>
-                                            <label for="message" class="form__label">Select Method</label>
+                                            <label for="message" class="form__label">Select Bank </label>
                                         </div>
                                     </td>
                                 </tr>
@@ -209,22 +209,17 @@
                 paketDes: [],
                 orders: {id: 0, nama: '', price: 0},
                 selectedDes: [],
-
-                reks: [
-                    {id: 1, bank: "Bank Rakyat Indonesia", rekening: "6278377238283728", holder: "Tiyo Rahman"},
-                    {id: 2, bank: "Bank Nasoinal Indonesia", rekening: "012891232", holder: "Tiyo Rahman"},
-                ], 
+                reks: [], 
                 selectedrek: "6278377238283728"
             },
             mounted () {
-                var app = this   
-                // axios.get(app.base_url+'/paket/'+app.paketId).then(response => (
-                //     app.paket = response.data,
-                //     app.orders.push({name: app.paket.nama, price: app.paket.harga, id:0}),
-                //     console.log(app.orders)
-                // )) .catch(error => {
-                //     console.log(error)
-                // })
+                var app = this
+                axios.get(app.base_url+'/rek').then(response => {
+                    app.reks = response.data
+                    app.selectedrek = response.data[0].rekening
+                }) .catch(error => {
+                    console.log(error)
+                })
                 axios.get(app.base_url+'/pp/'+app.paketId).then(response => (
                     app.paketDes = response.data
                 )) .catch(error => {
