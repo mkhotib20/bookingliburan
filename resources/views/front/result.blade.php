@@ -310,7 +310,7 @@
                 },
                 validate: function(){
                     var rt = false
-                    if (this.sisa != this.paket.kuota) {
+                    if (this.orders.id == 0) {
                         rt = false
                     }
                     else{
@@ -354,20 +354,6 @@
                         .catch(function (error) {
                             console.log(error);
                         });
-                        var orders = this.orders
-                        for (let i = 0; i < orders.length; i++) {
-                            if (orders[i].id!=0) {
-                                var data = {book_code: this.book_code, des_code: orders[i].id}
-                                axios.post(this.base_url+'/trx/savedes', data)
-                                .then(function (response) {
-                                    console.log(resp.data)
-                                })
-                                .catch(function (error) {
-                                    return false
-                                    console.log(error);
-                                });
-                            }                            
-                        }
                         axios.post(this.base_url+'/trx/save', this.trx)
                         .then(function (response) {
                             var resp = response.data
