@@ -21,10 +21,10 @@
           <div class="col-lg-12">
             <div class="card card-primary card-outline">
               <div class="card-header">
-                <a href="{{url('admin/paket/')}} " class="m-0"> <span class="fas fa-arrow-left"></span> Back</a>
+                <a href="{{url('mitra/paket/')}} " class="m-0"> <span class="fas fa-arrow-left"></span> Back</a>
               </div>
               <div class="card-body">
-                <form action="{{url('admin/paket/tambah-pd')}}" method="post" id="form-destinasi">
+                <form action="{{url('mitra/paket/tambah-pd')}}" method="post" id="form-destinasi">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <input type="hidden" name="paket" value="{{$idPaket}}">
                     <div class="row">
@@ -59,7 +59,7 @@
                                 <td>{{$index++}}</td>
                                 <td>{{$value->namaDes}}</td>
                                 <td> 
-                                    <a class="btn btn-light edit-des" href="{{url('admin/paket/delDp/'.$value->id)}}"><span class="fas fa-trash"></span></a> 
+                                    <a class="btn btn-light edit-des" href="{{url('mitra/paket/delDp/'.$value->id)}}"><span class="fas fa-trash"></span></a> 
                                 </td>
                               </tr>
                               @endforeach

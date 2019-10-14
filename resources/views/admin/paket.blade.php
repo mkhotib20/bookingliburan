@@ -52,7 +52,7 @@
                                         @method('DELETE')
                                         <button class="btn btn-light" type="submit"><span class="fas fa-trash"></span> Hapus</button>
                                     </form>
-                                    <a class="btn btn-light edit-des" href="{{url('admin/paket/list-destinasi/'.$value->id)}}"><span class="fas fa-list"></span> Destinasi</a> 
+                                    <a class="btn btn-light edit-des" href="{{url('mitra/paket/list-destinasi/'.$value->id)}}"><span class="fas fa-list"></span> Destinasi</a> 
                                 </td>
                               </tr>
                               @endforeach
@@ -76,7 +76,7 @@
               </button>
             </div>
             <div class="modal-body">
-                <form action="{{url('admin/paket/')}}" method="post" id="form-Paket">
+                <form action="{{url('mitra/paket/')}}" method="post" id="form-Paket">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <input type="hidden" id="id" name="id">
                     <div class="form-group">
@@ -118,7 +118,7 @@
     })
       $(document).on('click', '.edit-des', function(){
         var id = $(this).data('id')
-        var url = "{{url('admin/paket/')}}"+'/'+id
+        var url = "{{url('mitra/paket/')}}"+'/'+id
         $.get( url, function(data) {
             nama = data.nama
             harga = data.harga

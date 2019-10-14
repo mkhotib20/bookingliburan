@@ -84,7 +84,7 @@
               </button>
             </div>
             <div class="modal-body">
-                <form action="{{url('admin/destinasi/')}}" method="post" id="form-destinasi">
+                <form action="{{url('mitra/destinasi/')}}" method="post" id="form-destinasi">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <input type="hidden" id="id" name="id">
                     <div class="form-group">
@@ -126,7 +126,7 @@
       var des_kota
       $(document).on('click', '.edit-des', function(){
         id = $(this).data('id')
-        var url = "{{url('admin/destinasi/')}}"+'/'+id
+        var url = "{{url('mitra/destinasi/')}}"+'/'+id
         $.get( url, function(data) {
             nama = data.nama
             tiket = data.tiket

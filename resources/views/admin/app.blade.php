@@ -135,6 +135,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="{{url('mitra/rekening')}}" class="nav-link ">
+              <i class="nav-icon fas fa-money-bill"></i>
+              <p>
+                Manajemen Rekening
+              </p>
+            </a>
+          </li>
           @endif
         </ul>
       </nav>

@@ -49,7 +49,7 @@
                             <td>{{$value->title}}</td>
                             <td><img style="width: 200px" src="{{url('public/uploads/img_article/'.$value->cover_img )}}" alt="foto"> </td>
                             <td> 
-                                <a class="btn btn-light edit-des" href="{{url('admin/article/'.$value->id.'/edit')}}"><span class="fas fa-pencil-alt"></span></a> 
+                                <a class="btn btn-light edit-des" href="{{url('mitra/article/'.$value->id.'/edit')}}"><span class="fas fa-pencil-alt"></span></a> 
                                 <form action="{{ route('article.destroy', $value->id) }}" method="POST">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                     @method('DELETE')
