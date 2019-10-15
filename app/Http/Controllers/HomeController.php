@@ -14,7 +14,7 @@ class HomeController extends Controller
     public static function getIdentitas()
     {
         $ch = curl_init(); 
-        curl_setopt($ch, CURLOPT_URL, "http://localhost/bookingliburan/identitas.json");
+        curl_setopt($ch, CURLOPT_URL, url('')."/identitas.json");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
 
         $output = curl_exec($ch); 
