@@ -10,8 +10,45 @@ use App\Trx;
 use App\ItemDes;
 use App\Article;
 use App\MeetingPoint;
+use App\Http\Controllers\HomeController;
 class FrontController extends Controller
 {
+    public function identitas($id)
+    {
+        $iden = HomeController::getIdentitas();
+        $tara = $iden[$id];
+        $articles = Article::orderBy('created_at', 'desc')->take(4)->get();
+        switch ($id) {
+            case 'reservasi':
+                $data = array("iden" => $tara, 'new' => $articles);
+                return view("front.identitas")->with($data);
+                break;
+            case 'about':
+                $data = array("iden" => $tara, 'new' => $articles);
+                return view("front.about")->with($data);
+                break;
+            case 'kota':
+                $data = array("iden" => $tara, 'new' => $articles);
+                return view("front.identitas")->with($data);
+                break;
+            case 'durasi':
+                $data = array("iden" => $tara, 'new' => $articles);
+                return view("front.identitas")->with($data);
+                break;
+            case 'why':
+                $data = array("iden" => $tara, 'new' => $articles);
+                return view("front.why")->with($data);
+                break;
+            case 'faq':
+                return redirect()->route('faq');
+                break;
+            
+            default:
+                # code...
+                
+                break;
+        }
+    }
     public function done($id)
     {
         $trx = DB::table('transaksi')
@@ -114,7 +151,9 @@ class FrontController extends Controller
     }
     public function faq()
     {
-        return view("front.faq");
+        $iden = HomeController::getIdentitas();
+        $data = array('iden' =>  $iden['faq']);
+        return view("front.faq")->with($data);
     }
     public function transaksi(Request $req)
     {

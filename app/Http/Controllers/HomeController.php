@@ -11,6 +11,18 @@ class HomeController extends Controller
      *
      * @return void
      */
+    public static function getIdentitas()
+    {
+        $ch = curl_init(); 
+        curl_setopt($ch, CURLOPT_URL, "http://localhost/bookingliburan/identitas.json");
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
+
+        $output = curl_exec($ch); 
+        curl_close($ch);      
+
+        $arr = json_decode($output, TRUE);
+        return $arr;
+    }
     public function __construct()
     {
         $this->middleware('auth');

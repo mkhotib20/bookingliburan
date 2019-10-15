@@ -3,7 +3,7 @@
 @section('content')
     <section class="page-header">
         <div class="ph-img" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),   url('{{asset('public/front/img/ijen.jpg')}}') center no-repeat; background-size: cover">
-            <h1 class="ph-title">Pilihan Destinasi</h1>
+            <h1 class="ph-title">Tentang Kami</h1>
         </div>
         <style>
             .ui-state-active{
@@ -20,24 +20,15 @@
         <div class="container">
             <div class="sec-title left">
                 <h4>{{$iden['title']}}</h4>
+                <div class="line"></div>
             </div>
             <div class="sec-content">
                 <div class="row">
                     <div class="row">
                         <div class="col-md-12">
-                            <div id="accordion">
-                                @for ($i = 0; $i < count($iden['content'])-2; $i++)
-                                <?php $item = $iden['content'] ?>
-                                <h3>{{$item[$i]['q']}} </h3>
-                                <div>
-                                    <p>
-                                            {{$item[$i]['a']}} 
-                                    </p>
-                                </div>
-                                @endfor
-                            </div>
-                            <br>
-                            <b><p>{{$iden['content'][count($iden['content'])-1]}} </p></b>
+                            {{$iden['content']}}
+                            {{-- <br> --}}
+                            {{-- <b><p>{{$iden['content'][count($iden['content'])-1]}} </p></b> --}}
                         </div>
                     </div>
                 </div>

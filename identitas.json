@@ -1,0 +1,91 @@
+{
+    "reservasi": {
+        "title": "Cara Reservasi",
+        "content": [
+            "Silahkan isi form reservasi yang kami sediakan pada bagian bawah setiap paket wisata atau melalui chat WhatsApp di situs web",
+            "Kami akan merespon reservasi anda 1x24 jam Melalui email/telepon/sms",
+            "Lakukan dp sebesar 30% maximal pembayaran 3 hari sebelum keberangkatan",
+            "Konfirmasi dan diskusi bersama cs kami untuk waktu/tempat penjemputan",
+            "Setelah sampai ditempat yang sudah dijanjikan sebelumnya,kami akan antar ke hotel atau tempat tujuan trip anda",
+            "Pelunasan",
+            "Berwisata",
+            "Diantar oleh kami ketempat kepulangan distasiun/bandara/terminal",
+            "Transfer out"
+        ]
+    },
+    "faq" : {
+        "title": "Frequently Question Asked",
+        "content": [
+            {
+                "q": "Apakah bisa custom itinerary?",
+                "a": "Bisa, untuk custom itinerary atau durasi sebaiknya anda konsultasikan dengan customer service kami untuk mendapatkan informasi lebih baik"
+            },
+            {
+                "q": "Apakah bisa membawa anak-anak / bayi dalam paket trip?",
+                "a": "Iya karena tempat wisata yang dikunjungi ramah bagi segala usia dan tidak membutuhkan perlakuan khusus (sebaiknya jika memiliki penyakit dikonsultasikan dahulu karena takut ada kejadian diluar dugaan)"
+            },
+            {
+                "q": "Apakah harga yang tertera pada “open trip” pasti jalan ?",
+                "a": "kami menjamin pasti jalan dan terlaksana. khusus untuk open trip, dengan catatan jika kuota dibawah 5 orang harga menyesuaikan"
+            },
+            {
+                "q": "berapa minimum kuota peserta “open trip”?",
+                "a": "minimum 5 orang, jika kurang dari itu, harga menyesuaikan"
+            },
+            {
+                "q": "Dimanakah lokasi pertemuan ( meeting point )?",
+                "a": "meeting point di malang Jawa timur, untuk meeting point diluar kota tersebut dikenakan surcharge "
+            },
+            {
+                "q": "apabila terjadi pembatalan sepihak sebelum terlaksananya trip,apakah uang yang sudah masuk dapat dikembalikan?",
+                "a": "Jika terjadi pembatalan dari pihak peserta sebelum melakukan pelunasan, uang muka tidak dapat dikembalikan atau dianggap hangus"
+            },
+            {
+                "q": "kapan sebaiknya membeli tiket transportasi dari kota asal (pesawat,kereta,kapal)?",
+                "a": "tiket dapat dibeli secepatnya setelah melakukan down payment (DP) untuk trip, karena trip pasti terlaksana sesuai jadwal"
+            },
+            {
+                "q": "bagaimana cara memesan/booking seat untuk “open trip” maupun “private trip”?",
+                "a": "anda cukup membayar uang muka/DP 30% maximal pembayaran DP 3 hari sebelum keberangkatan. Maka anda sudah terdaftar menjadi peserta trip kami, dan sisa pembayaran wajib dilakukan pada saat meeting point pertama kali"
+            },
+            "DAN JIKA MASIH ADA PERTANYAAN LAIN YANG INGIN DISAMPAIKAN, MOHON MENGHUBUNGI CUSTOMER SERVICE KAMI :08XXXXXXXX TIYO RAHMAN (1X24 JAM) EMAIL : BOOKINGLIBURANCS@GMAIL.COM"
+        ]
+    },
+    "about": {
+        "title": "Tentang Kami",
+        "content": "Booking liburan adalah jasa tour and travel yang berbasis dimalang,Kami memiliki team yang profesional sesuai dengan SOP ( standard operational prosedur ) dari kami untuk menjamin pelayanan & kepuasan anda Berkat team profesional yang kami miliki, kami dapat melayani wisatawan lokal kapan saja tentunya dengan paket-paket menarik yang kami tawarkan bersama kami liburan anda menyenangkan dan mengesankan"
+    },
+    "why": {
+        "title": "Mengapa Memilih Kami",
+        "content": [
+            {
+                "point": "Destinasi",
+                "isi": "BookingLiburan menawarkan bermacam-macam destinasi wisata menarik dijawa timur yang wajib untuk dikunjungi"
+            },
+            {
+                "point": "Pemasaran Mudah",
+                "isi": "BookingLiburan akan membantu anda untuk lebih mudah mencari destinasi wisata yang berada dijawa timur "
+            },
+            {
+                "point": "Pelayanan Terbaik",
+                "isi": "BookingLiburan memberikan pelayanan terbaik sesuai SOP ( standart Operational prosedur ) untuk menjamin kepuasan anda"
+            },
+            {
+                "point": "Harga Bersahabat",
+                "isi": "BookingLiburan menawarkan paket-paket liburan untuk anda dengan harga bersahabat dan pastinya mendapatkan pelayanan baik "
+            }
+        ]
+    },
+    "type_tour": {
+        "title": "Tipe Tour",
+        "content": ["Keluarga", "Honeymoon/Pasangan","Gathering", "Study Tour", "Open Trip"]
+    },
+    "durasi": {
+        "title": "Durasi Trip",
+        "content": ["One day", "2H1M", "3H2M", "4H3M"]
+    },
+    "kota": {
+        "title": "Kota destinasi",
+        "content": ["Visit Malang", "Visit Banyuwangi"]
+    }
+}

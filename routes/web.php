@@ -19,7 +19,9 @@ Route::get('/', function () {
 });
 Route::get('/faq', function(){
     return redirect(app()->getLocale().'/faq');
-});
+})->name('faq');
+Route::get('/perusahaan/{id}', 'FrontController@identitas');
+
 Route::get('/cek-booking', 'FrontController@cek-booking');
 Route::get('/result', 'FrontController@hasilDestinasi');
 Route::get('/detail', 'FrontController@detailPaket');
@@ -63,5 +65,4 @@ Route::prefix('v1/admin/rbac/auth')->group(function () {
     Route::post('login', 'Auth\Admin\LoginController@loginAdmin')->name('admin.auth.loginAdmin');
     Route::post('logout', 'Auth\Admin\LoginController@logout')->name('admin.auth.logout');
   });
-
 // Route::get('/home', 'HomeController@index')->name('home');

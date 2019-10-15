@@ -28,7 +28,9 @@ $title = (isset($meta)) ? $meta.' - Booking Liburan' : 'Booking Liburan | Temuka
     <link rel="stylesheet" href="{{asset('public/owl')}}/owl.theme.default.min.css">
     <link href="https://cdn.jsdelivr.net/npm/vue-loading-overlay@3/dist/vue-loading.css" rel="stylesheet">
 
-
+<?php
+use App\Http\Controllers\HomeController;
+?>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
@@ -127,9 +129,9 @@ $title = (isset($meta)) ? $meta.' - Booking Liburan' : 'Booking Liburan | Temuka
                     <h5>Perusahaan</h5>
                     <div class="line white"></div>
                     <ul class="footer-item">
-                        <li><a href="">Mengenai kami</a></li>
-                        <li><a href="">Pendaftaran Mitra</a></li>
-                        <li><a href="">Hubungi Kami</a></li>
+                        @foreach (HomeController::getIdentitas() as $key => $value)
+                            <li><a href="{{url('perusahaan/'.$key)}}">{{$value['title']}}</a></li>
+                        @endforeach
                     </ul>
                 </div>
             </div>
