@@ -63,7 +63,7 @@ class AdminDestinasiController extends Controller
         Destinasi::updateOrCreate(['id' => $id],
                     [
                         'nama' => $request->nama,
-                        'tiket' => $request->tiket,
+                        'tiket' => 0,
                         'des_kota' => $request->des_kota,
                         'deskripsi' => $request->deskripsi,
                     ]);

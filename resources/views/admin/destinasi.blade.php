@@ -32,7 +32,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>Nama Destinasi</th>
-                                <th>Harga Tiket</th>
+                                {{-- <th>Harga Tiket</th> --}}
                                 <th>Kota</th>
                                 <th>Action</th>
                             </tr>
@@ -43,7 +43,7 @@
                             <tr>
                                 <td>{{$index++}}</td>
                                 <td>{{$value->nama}}</td>
-                                <td>{{$value->tiket}} </td>
+                                {{-- <td>{{$value->tiket}} </td> --}}
                                 <td>{{$value->nama_kota}}</td>
                                 <td> 
                                     <a class="btn btn-light edit-des" data-id="{{$value->id}}" href="javascript:void(0)"><span class="fas fa-pencil-alt"></span></a> 
@@ -60,7 +60,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>Nama Destinasi</th>
-                                <th>Harga Tiket</th>
+                                {{-- <th>Harga Tiket</th> --}}
                                 <th>Kota</th>
                                 <th>Action</th>
                             </tr>
@@ -91,10 +91,10 @@
                         <label for="">Nama Destinasi</label>
                         <input required type="text" name="nama" id="nama" class="form-control">
                     </div>
-                    <div class="form-group">
+                    {{-- <div class="form-group">
                         <label for="">Harga Tiket</label>
                         <input required type="text" name="tiket" id="tiket" class="form-control">
-                    </div>
+                    </div> --}}
                     <div class="form-group">
                         <label for="">Kota</label>
                         <select required class="form-control" id="des_kota" name="des_kota">
@@ -133,7 +133,7 @@
             deskripsi = data.deskripsi
             des_kota = data.des_kota
             $('#nama').val(nama)
-            $('#tiket').val(tiket)
+            // $('#tiket').val(tiket)
             $('#deskripsi').val(deskripsi)
             $('#id').val(id)
             $('#des_kota').val(des_kota)
@@ -142,7 +142,7 @@
       })   
       $('#add').click(function(){
         $('#nama').val("")
-            $('#tiket').val("")
+            // $('#tiket').val("")
             $('#deskripsi').val("")
             $('#id').val("")
             $('#des_kota').val("")
