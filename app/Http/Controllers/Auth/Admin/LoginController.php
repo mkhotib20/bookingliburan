@@ -45,15 +45,15 @@ class LoginController extends Controller
       //   'email'   => 'required|email',
       //   'password' => 'required|min:6'
       // ]);
-      echo $request->email;
+    //   echo $request->email;
       // Attempt to log the user in
       if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password], $request->remember)) {
         // if successful, then redirect to their intended location
-        return redirect()->intended(route('destinasi.index'));
+        return redirect()->route('destinasi.index')->with('msg', 'Welcome, login berhasil');
       }
       // if unsuccessful, then redirect back to the login with the form data
       session()->flash('msg', 'Your credintials do not match  our record');
-      // return redirect()->back()->withInput($request->only('email', 'remember'));
+    //   return redirect()->back()->withInput($request->only('email', 'remember'));
       // session()->flash('msg', 'Failed to login');
       // echo Session::get('msg');
     }
