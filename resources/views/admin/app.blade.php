@@ -189,6 +189,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{{asset('public/admin')}}/plugins/dropify/js/dropify.min.js"></script>
 <!-- Summernote -->
 <script src="{{asset('public/admin')}}/plugins/summernote/summernote-bs4.min.js"></script>
+<script src="{{asset('public/vue.js')}}"></script>
+<script src="{{asset('public/axios.min.js')}}"></script>
 
 @yield('custom-script')
 

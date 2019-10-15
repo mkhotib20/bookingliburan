@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Input;
 use App\Trx;
 use App\ItemDes;
 use App\Article;
+use App\Paket;
 use App\MeetingPoint;
 use App\Http\Controllers\HomeController;
 class FrontController extends Controller
@@ -106,12 +107,7 @@ class FrontController extends Controller
     }
     public function index()
     {
-        $paket = DB::table('des_paket')
-        ->join('paket', 'des_paket.dp_paket', '=', 'paket.id')
-        ->join('destinasi', 'des_paket.dp_des', '=', 'destinasi.id')
-        ->groupBy('des_paket.dp_paket')
-        ->select('destinasi.nama as namaDes', 'paket.nama as namaPaket', 'paket.id as idPaket', 'paket.harga')
-        ->get();
+        $paket = Paket::all();
         $article = Article::orderBy('created_at', 'desc')->take(4)->get();
         $data = array('paket' => $paket, 'article' => $article);
         return view("front.home")->with($data);

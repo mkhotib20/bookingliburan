@@ -52,7 +52,7 @@
                                         @method('DELETE')
                                         <button class="btn btn-light" type="submit"><span class="fas fa-trash"></span> Hapus</button>
                                     </form>
-                                    <a class="btn btn-light edit-des" href="{{url('mitra/paket/list-destinasi/'.$value->id)}}"><span class="fas fa-list"></span> Destinasi</a> 
+                                    <a class="btn btn-light edit-des" href="{{url('mitra/paket/list-harga/'.$value->id)}}"><span class="fas fa-list"></span> Harga per Pax</a> 
                                 </td>
                               </tr>
                               @endforeach

@@ -45,7 +45,7 @@ Route::prefix('mitra')->group(function () {
     Route::resource('destinasi', 'AdminDestinasiController')->middleware('auth:admin');
     Route::resource('article', 'ArticleController')->middleware('auth:admin');
     Route::resource('kota', 'KotaController')->middleware('auth:admin',['only' => 'index','edit']);
-    Route::get('paket/list-destinasi/{id}', 'PaketController@listDestinasi')->middleware('auth:admin');
+    Route::get('paket/list-harga/{id}', 'PaketController@listHarga')->middleware('auth:admin');
     Route::get('paket/delDp/{id}', 'PaketController@delDp')->middleware('auth:admin');
     Route::post('paket/tambah-pd', 'PaketController@tPd')->middleware('auth:admin');
     Route::resource('paket', 'PaketController')->middleware('auth:admin');

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Paket;
 use App\PektDes;
 use App\Destinasi;
+use App\PaketPax;
 use Redirect,Response;
 use Session;
 
@@ -84,9 +85,30 @@ class PaketController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    public function pp_destroy(Request $req)
+    {
+        $pp = PaketPax::find($req->id);
+        $pp->delete();
+        $data['status'] = '000';
+        return $data;
+    }
     public function update(Request $request, $id)
     {
         //
+    }
+    public function add_pp(Request $req)
+    {
+        $paket = PaketPax::create([
+            "pp_paket" => $req->paket,
+            "pp_pax" => $req->pax,
+            "pp_price" => $req->price
+        ]);
+        return $paket;
+    }
+    public function listHarga($id)
+    {
+        $data = array('id' => $id);
+        return view('admin.pp')->with($data); 
     }
     public function listDestinasi($id)
     {
