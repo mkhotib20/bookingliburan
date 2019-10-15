@@ -53,7 +53,7 @@ class LoginController extends Controller
       }
       // if unsuccessful, then redirect back to the login with the form data
       session()->flash('msg', 'Your credintials do not match  our record');
-      return redirect()->back()->withInput($request->only('email', 'remember'));
+      // return redirect()->back()->withInput($request->only('email', 'remember'));
       // session()->flash('msg', 'Failed to login');
       // echo Session::get('msg');
     }
