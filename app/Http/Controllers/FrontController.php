@@ -27,6 +27,10 @@ class FrontController extends Controller
                 $data = array("iden" => $tara, 'new' => $articles);
                 return view("front.about")->with($data);
                 break;
+            case 'type_tour':
+                $data = array("iden" => $tara, 'new' => $articles);
+                return view("front.identitas")->with($data);
+                break;
             case 'kota':
                 $data = array("iden" => $tara, 'new' => $articles);
                 return view("front.identitas")->with($data);
