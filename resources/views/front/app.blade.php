@@ -100,6 +100,11 @@ use App\Http\Controllers\HomeController;
                 <div class="col-md-4 my-2">
                     <h5>Tentang Kami</h5>
                     <div class="line white"></div>
+                    <p>Booking liburan adalah jasa tour and travel yang berbasis dimalang,Kami memiliki team yang profesional sesuai dengan SOP ( standard operational prosedur ) dari kami untuk menjamin pelayanan & kepuasan anda Berkat team profesional yang kami miliki, kami dapat melayani wisatawan lokal kapan saja tentunya dengan paket-paket menarik yang kami tawarkan bersama kami liburan anda menyenangkan dan mengesankan</p>
+                </div>
+                <div class="col-md-4 my-2">
+                    <h5>Hubungi Kami</h5>
+                    <div class="line white"></div>
                     <table class="foot-tb">
                         <tr>
                             <td><span class="fas fa-map"></span></td>
@@ -116,16 +121,7 @@ use App\Http\Controllers\HomeController;
                     </table>
                 </div>
                 <div class="col-md-4 my-2">
-                    <h5>Produk</h5>
-                    <div class="line white"></div>
-                    <ul class="footer-item">
-                        <li><a href="">Paket Liburan</a></li>
-                        <li><a href="">Sewa Mobil</a></li>
-                        <li><a href="">Sewa Villa</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4 my-2">
-                    <h5>Perusahaan</h5>
+                    <h5>Quick Link</h5>
                     <div class="line white"></div>
                     <ul class="footer-item">
                         @foreach (HomeController::getIdentitas() as $key => $value)
