@@ -7,7 +7,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Destinasi</h1>
+            <h1 class="m-0 text-dark">{{$paket->nama}}</h1>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -32,7 +32,11 @@
                             <select required name="destinasi" class="form-control">
                                 <option disabled selected>--pilih destinasi--</option>
                                 @foreach($dest as $key => $val)
-                                <option value="{{$val->id}}">{{$val->nama}}</option>
+                                <option 
+                                  @if ($val->isSelected)
+                                      disabled style="color: #bbbbbb"
+                                  @endif
+                                value="{{$val->id}}">{{$val->nama}}</option>
                                 @endforeach
                             </select>
                         </div>

@@ -107,7 +107,7 @@ class PaketController extends Controller
     }
     public function listHarga($id)
     {
-        $data = array('id' => $id);
+        $data = array('id' => $id, 'paket' => Paket::find($id));
         return view('admin.pp')->with($data); 
     }
     public function listDestinasi($id)
@@ -116,9 +116,18 @@ class PaketController extends Controller
         $pd = DB::table('des_paket')
         ->join('destinasi', 'destinasi.id', '=', 'des_paket.dp_des')
         ->where('des_paket.dp_paket', $id)
-        ->select('des_paket.*', 'destinasi.nama as namaDes')
+        ->select('des_paket.id', 'destinasi.nama as namaDes', 'destinasi.id as desId')
         ->get();
-        $data = array('pd' => $pd, 'dest' => $des, 'idPaket' => $id);
+        foreach ($des as $key => $val) {
+            $val['isSelected'] = false;
+            foreach ($pd as $key2 => $val2) {
+                if ($val->id == $val2->desId) {
+                    $val['isSelected'] = true;
+                }
+            }
+        }
+        // return $des;
+        $data = array('pd' => $pd, 'dest' => $des, 'idPaket' => $id, 'paket' => Paket::find($id));
         return view('admin.pd')->with($data); 
     }
     public function tPd(Request $req)
@@ -128,7 +137,10 @@ class PaketController extends Controller
         ]);
         $des = $req->destinasi;
         $paket = $req->paket;
-        PektDes::create([
+        PektDes::updateOrCreate([
+            ['dp_paket', '='. $paket],
+            ['dp_des', '='. $des],
+        ],[
             'dp_des' => $des,
             'dp_paket' => $paket
         ]);

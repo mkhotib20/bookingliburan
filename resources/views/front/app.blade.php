@@ -16,7 +16,6 @@ $title = (isset($meta)) ? $meta.' - Booking Liburan' : 'Booking Liburan | Temuka
     <link rel="stylesheet" href="{{asset('public/front/css/jquery-ui.css')}} ">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet" />
     <link rel="icon" href="{{asset('public/front/logo-transparan.png')}}" type="image/png" />
 
     <link href="https://fonts.googleapis.com/css?family=Gayathri|Lexend+Peta&display=swap" rel="stylesheet">
@@ -275,7 +274,6 @@ use App\Http\Controllers\HomeController;
 </body>
 <script src="{{asset('public/front/js/jquery.min.js')}}"></script>
 <script src="{{asset('public/front/js/jquery-ui.min.js')}}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
 <script src="{{asset('public/front/js/popper.min.js')}}"></script>
 <script src="{{asset('public/front/js/bootstrap.min.js')}}"></script>
 <script src="{{asset('public/vue.js')}}"></script>
