@@ -325,10 +325,10 @@
                     if (this.validate()) {
                         let loader = this.$loading.show({
                         // Optional parameters
-                        loader: 'dots',
-                        container: this.fullPage ? null : this.$refs.formContainer,
-                        canCancel: false,
-                        onCancel: this.onCancel,
+                            loader: 'dots',
+                            container: this.fullPage ? null : this.$refs.formContainer,
+                            canCancel: false,
+                            onCancel: this.onCancel,
                         });
                         
                         this.trx = {
