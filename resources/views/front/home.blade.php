@@ -95,12 +95,13 @@
                     <div class="owl-carousel owl-theme owl-loaded">
                         @foreach($paket as $key => $val)
                         <div class="col-md-12 item">
-                            <a href="{{url('detail?jkjaBA782hJA='.csrf_token().'&id_paket='.$val->idPaket)}} ">
+                            <a href="{{url('detail?jkjaBA782hJA='.csrf_token().'&id_paket='.$val->id)}} ">
                                 <div class="card card-paket">
                                     <div class="box-img"><img src="{{asset('public/front/img/cpl (1).jpg')}}" alt="">
-                                        <div class="price">Rp. {{number_format($val->harga, '0', '.', ',')}}</div></div>
+                                        
+                                        <div class="price"> <span style="font-size: 14px">Start From</span> <br> Rp. {{number_format($val->pp_price, '0', '.', ',')}}</div></div>
                                     <div class="img-cpt">
-                                        <h4>{{$val->namaPaket}}</h4>
+                                        <h4>{{$val->nama}}</h4>
                                         <p>Destinasi :  </p>
                                         <div class="location"><span class="fas fa-map-pin"></span> Malang</div>
                                     </div>
@@ -122,7 +123,7 @@
             </div>
             <div class="sec-content">
                 <div class="row">
-                    <div class="owl-carousel owl-theme owl-loaded">
+                    <div class="owl-carousel owl-theme">
                         @foreach($article as $key => $val)
                         <div class="col-md-12 item">
                             <a href="{{url('article/'.$val->slug)}} ">

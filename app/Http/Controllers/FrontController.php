@@ -50,7 +50,6 @@ class FrontController extends Controller
             
             default:
                 # code...
-                
                 break;
         }
     }
@@ -107,10 +106,20 @@ class FrontController extends Controller
     }
     public function index()
     {
-        $paket = Paket::all();
+        $paket = DB::select("
+            SELECT paket.id, paket.nama, paket_pax.pp_price FROM des_paket, paket_pax, paket, destinasi 
+            WHERE des_paket.dp_paket = paket.id
+            AND des_paket.dp_des = destinasi.id
+            AND paket_pax.pp_paket = paket.id
+            GROUP BY paket.id
+        ");
         $article = Article::orderBy('created_at', 'desc')->take(4)->get();
+        // $paket = array_map(function ($value) {
+        //     return (array)$value;
+        // }, $paket);
         $data = array('paket' => $paket, 'article' => $article);
         return view("front.home")->with($data);
+        // return $paket;
     }
     public function meeting()
     {
@@ -123,9 +132,8 @@ class FrontController extends Controller
         ->join('destinasi', 'destinasi.id', '=', 'des_paket.dp_des')
         ->join('paket', 'paket.id', '=', 'des_paket.dp_paket')
         ->where('des_paket.dp_paket', $id)
-        ->select('destinasi.*', 'paket.id as paketId', 'paket.nama as namaPaket', 'paket.harga as hargaP', 'paket.desc')
-        ->get();
-        $data = array('pd' => $pd, 'meta' => $pd[0]->namaPaket);
+        ->select('destinasi.*', 'paket.id as paketId', 'paket.nama as namaPaket', 'paket.harga as hargaP', 'paket.desc');
+        $data = array('pd' => $pd->get(), 'meta' => $pd->first()->namaPaket);
         return view("front.detail")->with($data);
     }
     public function hasilDestinasi()

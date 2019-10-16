@@ -21,7 +21,7 @@ $title = (isset($meta)) ? $meta.' - Booking Liburan' : 'Booking Liburan | Temuka
     <link href="https://fonts.googleapis.com/css?family=Gayathri|Lexend+Peta&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Manjari:400,700&display=swap&subset=malayalam" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('public/admin')}}/plugins/fontawesome-free/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/vue-datetime@1.0.0-beta.6/dist/vue-datetime.min.css">
+    <link rel="stylesheet" href="{{asset('public/izi')}}/vue-datetime.min.css">
     <link rel="stylesheet" href="{{asset('public/izi')}}/iziToast.min.css">
     <link rel="stylesheet" href="{{asset('public/owl')}}/owl.carousel.min.css">
     <link rel="stylesheet" href="{{asset('public/owl')}}/owl.theme.default.min.css">
@@ -278,7 +278,7 @@ use App\Http\Controllers\HomeController;
 <script src="{{asset('public/front/js/bootstrap.min.js')}}"></script>
 <script src="{{asset('public/vue.js')}}"></script>
 <script src="{{asset('public/axios.min.js')}}"></script>
-<script src='https://unpkg.com/v-calendar@next'></script>
+<script src="{{asset('public/v-calendar.umd.min.js')}}"></script>
 <script src="{{asset('public/izi/iziToast.min.js')}}"></script>
 <script src="{{asset('public/owl/owl.carousel.min.js')}}"></script>
 
