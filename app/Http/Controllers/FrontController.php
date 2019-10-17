@@ -111,6 +111,7 @@ class FrontController extends Controller
             WHERE des_paket.dp_paket = paket.id
             AND des_paket.dp_des = destinasi.id
             AND paket_pax.pp_paket = paket.id
+            and paket_pax.pp_pax = 6
             GROUP BY paket.id
         ");
         $article = Article::orderBy('created_at', 'desc')->take(4)->get();
