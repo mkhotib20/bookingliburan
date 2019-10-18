@@ -108,11 +108,10 @@ class FrontController extends Controller
     public function index()
     {
         $paket = DB::select("
-            SELECT paket.id, paket.nama, paket.cover_img, paket_pax.pp_price FROM des_paket, paket_pax, paket, destinasi 
+            SELECT paket.id, paket.nama, MIN(pp_price) as startfrom, paket.cover_img, paket_pax.pp_price FROM des_paket, paket_pax, paket, destinasi 
             WHERE des_paket.dp_paket = paket.id
             AND des_paket.dp_des = destinasi.id
             AND paket_pax.pp_paket = paket.id
-            and paket_pax.pp_pax = (SELECT MAX(pp_pax) FROM paket_pax)
             GROUP BY paket.id
         ");
         $article = Article::orderBy('created_at', 'desc')->take(4)->get();

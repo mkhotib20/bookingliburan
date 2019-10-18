@@ -102,7 +102,7 @@
                                         <div style="background: url('{{asset('public/uploads/img_paket/'.$val->cover_img)}}') center no-repeat; 
                                         background-size: cover;
                                         height: 200px" ></div>
-                                        <div class="price"> <span style="font-size: 14px">Start From</span> <br> Rp. {{number_format($val->pp_price, '0', '.', ',')}}</div></div>
+                                        <div class="price"> <span style="font-size: 14px">Start From</span> <br> Rp. {{number_format($val->startfrom, '0', '.', ',')}}</div></div>
                                     <div class="img-cpt">
                                         <h4>{{$val->nama}}</h4>
                                         <p>Destinasi :  </p>
