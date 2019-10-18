@@ -112,7 +112,7 @@ class FrontController extends Controller
             WHERE des_paket.dp_paket = paket.id
             AND des_paket.dp_des = destinasi.id
             AND paket_pax.pp_paket = paket.id
-            and paket_pax.pp_pax = 6
+            and paket_pax.pp_pax = (SELECT MAX(pp_pax) FROM paket_pax)
             GROUP BY paket.id
         ");
         $article = Article::orderBy('created_at', 'desc')->take(4)->get();
@@ -172,7 +172,7 @@ class FrontController extends Controller
         ->join('paket', 'paket.id', '=', 'des_paket.dp_paket')
         ->where('des_paket.dp_paket', $id)
         ->select('destinasi.*', 'paket.id as paketId', 'paket.nama as namaPaket', 'paket.harga as hargaP', 'paket.desc', 'paket.cover_img');
-        $pp = PaketPax::where('pp_paket', $id)->orderBy('pp_price', 'asc')->get();
+        $pp = PaketPax::where('pp_paket', $id)->orderBy('pp_pax', 'desc')->get();
         $articles = Article::orderBy('created_at', 'desc')->take(4)->get();
         $data = array('pd' => $pd->get(), 'meta' => $pd->first()->namaPaket, 'pp' => $pp, 'articles' => $articles);
         return view("front.detail")->with($data);
