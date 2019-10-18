@@ -32,8 +32,8 @@
                             <tr>
                                 <th>#</th>
                                 <th>Nama Paket</th>
-                                <th>Harga Paket</th>
-                                <th>Kuota Paket</th>
+                                {{-- <th>Harga Paket</th> --}}
+                                {{-- <th>Kuota Paket</th> --}}
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -43,8 +43,8 @@
                             <tr>
                                 <td>{{$index++}}</td>
                                 <td>{{$value->nama}}</td>
-                                <td>{{$value->harga}}</td>
-                                <td>{{$value->kuota}}</td>
+                                {{-- <td>{{$value->harga}}</td> --}}
+                                {{-- <td>{{$value->kuota}}</td> --}}
                                 <td> 
                                     <a class="btn btn-light edit-des" data-id="{{$value->id}}" href="javascript:void(0)"><span class="fas fa-pencil-alt"></span> Edit</a> 
                                     <form action="{{ route('paket.destroy', $value->id) }}" method="POST">
@@ -53,7 +53,8 @@
                                         <button class="btn btn-light" type="submit"><span class="fas fa-trash"></span> Hapus</button>
                                     </form>
                                     <a class="btn btn-light edit-des" href="{{url('mitra/paket/list-harga/'.$value->id)}}"><span class="fas fa-money-bill"></span> Harga per Pax</a> <br> 
-                                    <a class="btn btn-light edit-des" href="{{url('mitra/paket/list-destinasi/'.$value->id)}}"><span class="fas fa-list"></span> Destinasi</a> 
+                                    <a class="btn btn-light edit-des" href="{{url('mitra/paket/list-destinasi/'.$value->id)}}"><span class="fas fa-list"></span> Destinasi</a>
+                                    <a class="btn btn-light edit-des" href="{{url('mitra/paket/des/'.$value->id)}}"><span class="fas fa-list"></span> Deskripsi & itinerary</a> 
                                 </td>
                               </tr>
                               @endforeach
@@ -84,7 +85,7 @@
                         <label for="">Nama Paket</label>
                         <input required type="text" name="nama" id="nama" class="form-control">
                     </div>
-                    <div class="form-group">
+                    {{-- <div class="form-group">
                         <label for="">Harga Paket</label>
                         <input required type="text" name="harga" id="harga" class="form-control">
                     </div>
@@ -95,7 +96,7 @@
                     <div class="form-group">
                         <label for="">Kuota Paket</label>
                         <textarea required name="desc" id="desc" class="form-control"></textarea>
-                    </div>
+                    </div> --}}
             </div>
             <div class="modal-footer justify-content-between">
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

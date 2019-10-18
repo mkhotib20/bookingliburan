@@ -67,7 +67,7 @@
             <div class="sec-content">
                 <div class="row">
                     <div v-for="service in services" class="col-6 col-lg-2 my-2">
-                        <a href="#">
+                        <a v-bind:href="'{{url('service/detail')}}/'+service.key ">
                             <div class="card-shell">
                                 <div class="card card-1">
                                     <img class="img-srv" v-bind:src="service.icon" alt="">
@@ -97,7 +97,7 @@
                         <div class="col-md-12 item">
                             <a href="{{url('detail?jkjaBA782hJA='.csrf_token().'&id_paket='.$val->id)}} ">
                                 <div class="card card-paket">
-                                    <div class="box-img"><img src="{{asset('public/front/img/cpl (1).jpg')}}" alt="">
+                                    <div class="box-img"><img src="{{asset('public/uploads/img_paket/'.$val->cover_img)}}" alt="">
                                         
                                         <div class="price"> <span style="font-size: 14px">Start From</span> <br> Rp. {{number_format($val->pp_price, '0', '.', ',')}}</div></div>
                                     <div class="img-cpt">
@@ -190,12 +190,12 @@ Vue.component('loading', VueLoading)
                 selectedDate: new Date("22/09/2019"),
                 highlight: true,
                 services: [
-                    {label: "Paket Wisata", icon: "{{asset('public/front/icon/')}}/paket_wisata.svg"},
-                    {label: "Sewa Mobil", icon: "{{asset('public/front/icon/')}}/mobil.svg"},
-                    {label: "Outbond", icon: "{{asset('public/front/icon/')}}/outbond.svg"},
-                    {label: "Tiket Event", icon: "{{asset('public/front/icon/')}}/tiket.svg"},
-                    {label: "Sewa Motor", icon: "{{asset('public/front/icon/')}}/motor.svg"},
-                    {label: "Sewa Villa", icon: "{{asset('public/front/icon/')}}/vila.svg"},
+                    {label: "Paket Wisata", icon: "{{asset('public/front/icon/')}}/paket_wisata.svg", key: "wisata"},
+                    {label: "Sewa Mobil", icon: "{{asset('public/front/icon/')}}/mobil.svg", key: "mobil"},
+                    {label: "Outbond", icon: "{{asset('public/front/icon/')}}/outbond.svg", key: "outbond"},
+                    {label: "Tiket Event", icon: "{{asset('public/front/icon/')}}/tiket.svg", key: "event"},
+                    {label: "Sewa Motor", icon: "{{asset('public/front/icon/')}}/motor.svg", key: "motor"},
+                    {label: "Sewa Villa", icon: "{{asset('public/front/icon/')}}/vila.svg", key: "villa"},
                 ],
             }
         })

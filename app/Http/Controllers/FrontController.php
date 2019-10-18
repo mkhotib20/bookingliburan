@@ -10,6 +10,7 @@ use App\Trx;
 use App\ItemDes;
 use App\Article;
 use App\Paket;
+use App\PaketPax;
 use App\MeetingPoint;
 use App\Http\Controllers\HomeController;
 class FrontController extends Controller
@@ -107,7 +108,7 @@ class FrontController extends Controller
     public function index()
     {
         $paket = DB::select("
-            SELECT paket.id, paket.nama, paket_pax.pp_price FROM des_paket, paket_pax, paket, destinasi 
+            SELECT paket.id, paket.nama, paket.cover_img, paket_pax.pp_price FROM des_paket, paket_pax, paket, destinasi 
             WHERE des_paket.dp_paket = paket.id
             AND des_paket.dp_des = destinasi.id
             AND paket_pax.pp_paket = paket.id
@@ -122,6 +123,12 @@ class FrontController extends Controller
         return view("front.home")->with($data);
         // return $paket;
     }
+    
+    function detailService($key)
+    {
+        $data = array('key' => $key);
+        return view("front.service")->with($data);
+    }
     public function meeting()
     {
         return MeetingPoint::all();
@@ -133,8 +140,10 @@ class FrontController extends Controller
         ->join('destinasi', 'destinasi.id', '=', 'des_paket.dp_des')
         ->join('paket', 'paket.id', '=', 'des_paket.dp_paket')
         ->where('des_paket.dp_paket', $id)
-        ->select('destinasi.*', 'paket.id as paketId', 'paket.nama as namaPaket', 'paket.harga as hargaP', 'paket.desc');
-        $data = array('pd' => $pd->get(), 'meta' => $pd->first()->namaPaket);
+        ->select('destinasi.*', 'paket.id as paketId', 'paket.nama as namaPaket', 'paket.harga as hargaP', 'paket.desc', 'paket.cover_img');
+        $pp = PaketPax::where('pp_paket', $id)->orderBy('pp_price', 'asc')->get();
+        $articles = Article::orderBy('created_at', 'desc')->take(4)->get();
+        $data = array('pd' => $pd->get(), 'meta' => $pd->first()->namaPaket, 'pp' => $pp, 'articles' => $articles);
         return view("front.detail")->with($data);
     }
     public function hasilDestinasi()

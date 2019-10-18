@@ -23,6 +23,7 @@ Route::get('/faq', function(){
 Route::get('/perusahaan/{id}', 'FrontController@identitas');
 
 Route::get('/cek-booking', 'FrontController@cek-booking');
+Route::get('/service/detail/{key}', 'FrontController@detailService');
 Route::get('/result', 'FrontController@hasilDestinasi');
 Route::get('/detail', 'FrontController@detailPaket');
 Route::get('/article/{id}', 'FrontController@detailArticle');
@@ -47,6 +48,8 @@ Route::prefix('mitra')->group(function () {
     Route::resource('kota', 'KotaController')->middleware('auth:admin',['only' => 'index','edit']);
     Route::get('paket/list-harga/{id}', 'PaketController@listHarga')->middleware('auth:admin');
     Route::get('paket/list-destinasi/{id}', 'PaketController@listDestinasi')->middleware('auth:admin');
+    Route::get('paket/des/{id}', 'PaketController@deskripsi')->middleware('auth:admin');
+    Route::post('paket/save-des', 'PaketController@saveDes')->middleware('auth:admin');
     Route::get('paket/delDp/{id}', 'PaketController@delDp')->middleware('auth:admin');
     Route::post('paket/tambah-pd', 'PaketController@tPd')->middleware('auth:admin');
     Route::resource('paket', 'PaketController')->middleware('auth:admin');

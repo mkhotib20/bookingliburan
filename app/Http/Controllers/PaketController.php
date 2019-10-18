@@ -130,6 +130,35 @@ class PaketController extends Controller
         $data = array('pd' => $pd, 'dest' => $des, 'idPaket' => $id, 'paket' => Paket::find($id));
         return view('admin.pd')->with($data); 
     }
+    public function saveDes(Request $req)
+    {
+        $tujuan_upload = 'public/uploads/img_paket';
+        if (isset($req->cover_img)) {
+            $file = $req->file('cover_img');
+            $fn = 'img-'.time().$req->namaPaket.'.'.$file->guessExtension();;
+            $file->move($tujuan_upload,$fn);
+            $cover_img = $fn;
+            Paket::updateOrCreate(
+                ['id' => $req->id],
+                [
+                    'desc' => $req->desc,
+                    'cover_img' => $cover_img
+                ]
+                );
+        }
+        else{
+            echo 'as';
+        }
+        // return $req->desc;
+        Session::flash('sukses','Menyimpan data berhasil');
+        return redirect()->route('paket.index')->with('success', 'Post tersimpan');
+    }
+    public function deskripsi($id)
+    {
+        $paket = Paket::find($id);
+        $data = array('des' => $paket->desc, 'judul' => $paket->nama, 'id' => $id, 'cover_img' => $paket->cover_img);
+        return view('admin.des')->with($data);
+    }
     public function tPd(Request $req)
     {
         $validatedData = $req->validate([
