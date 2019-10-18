@@ -127,7 +127,38 @@ class FrontController extends Controller
     function detailService($key)
     {
         $data = array('key' => $key);
-        return view("front.service")->with($data);
+        switch ($key) {
+            case 'wisata':
+                $service = DB::select("
+                    SELECT paket.id, paket.nama, paket.cover_img, paket_pax.pp_price FROM des_paket, paket_pax, paket, destinasi 
+                    WHERE des_paket.dp_paket = paket.id
+                    AND des_paket.dp_des = destinasi.id
+                    AND paket_pax.pp_paket = paket.id
+                    and paket_pax.pp_pax = 6
+                    GROUP BY paket.id
+                ");
+                $data['paket'] = $service;
+                $data['jenis'] = "Paket Wisatas";                
+                return view("front.service")->with($data);
+                break;
+            case 'mobil':
+                $obj = new \stdClass();
+                $service =  array(
+                    array("title" => "Toyota Agya", "harga" => "200000", "img"=> "a.jpg", "id"=> "1"),
+                    array("title" => "Toyota Ayla", "harga" => "200000", "img"=> "b.jpg", "id"=> "1"),
+                    array("title" => "Toyota Calya", "harga" => "225000", "img"=> "a.jpg", "id"=> "1"),
+                    array("title" => "All new Avanza Agya", "harga" => "225000", "img"=> "a.jpg", "id"=> "1"),
+                    array("title" => "Toyota Agya", "harga" => "225000", "img"=> "b.jpg", "id"=> "1"),
+                );
+                $obj = (object) $service;
+                $data['service'] = $obj;
+                $data['jenis'] = "Sewa Mobil";
+                // return $service;
+                return view("front.mobil")->with($data);
+            default:
+                return view("front.cs")->with($data);
+                break;
+        }
     }
     public function meeting()
     {

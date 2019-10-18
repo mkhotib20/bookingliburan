@@ -87,7 +87,7 @@
     <section class="content-sec">
         <div class="container">
             <div class="sec-title">
-                <h2>Package from us</h2>
+                <h2>Most popular package</h2>
                 <div class="line mx-auto"></div>
             </div>
             <div class="sec-content">
