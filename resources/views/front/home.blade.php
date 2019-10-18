@@ -97,8 +97,11 @@
                         <div class="col-md-12 item">
                             <a href="{{url('detail?jkjaBA782hJA='.csrf_token().'&id_paket='.$val->id)}} ">
                                 <div class="card card-paket">
-                                    <div class="box-img"><img src="{{asset('public/uploads/img_paket/'.$val->cover_img)}}" alt="">
-                                        
+                                    <div class="box-img">
+                                        {{-- <img src="{{asset('public/uploads/img_paket/'.$val->cover_img)}}" alt=""> --}}
+                                        <div style="background: url('{{asset('public/uploads/img_paket/'.$val->cover_img)}}') center no-repeat; 
+                                        background-size: cover;
+                                        height: 200px" ></div>
                                         <div class="price"> <span style="font-size: 14px">Start From</span> <br> Rp. {{number_format($val->pp_price, '0', '.', ',')}}</div></div>
                                     <div class="img-cpt">
                                         <h4>{{$val->nama}}</h4>
