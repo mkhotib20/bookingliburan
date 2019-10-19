@@ -38,8 +38,8 @@
                         <tbody>
                             <tr>
                                 <td></td>
-                                <td><input type="text" v-model="pax_name" class="form-control"></td>
-                                <td><input type="text" v-model="pax_price" class="form-control"></td>
+                                <td><input type="text" ref="pax_jum" v-model="pax_name" class="form-control"></td>
+                                <td><input type="text" v-model="pax_price" v-on:keyup.enter="save(paketId)" class="form-control"></td>
                                 <td> 
                                     <a v-on:click="save(paketId)" class="btn btn-success edit-des" href="javascript:void(0)"><span class="fas fa-save"></span></a> 
                                 </td>
@@ -75,6 +75,7 @@
                 paketPax: []
               },
               mounted(){
+                            this.$refs.pax_jum.focus()
                     axios.get(this.base_url+'/pp/'+this.paketId).then(response => {
                             // console.log(response)
                         response.data.forEach(resp => {
@@ -94,6 +95,8 @@
                             this.paketPax.push({name: resp.pp_pax, price: resp.pp_price, id: resp.pp_id})  
                             this.pax_price = ''
                             this.pax_name = ''
+
+                            this.$refs.pax_jum.focus()
                         }) .catch(error => {
                             console.log(error)
                         })

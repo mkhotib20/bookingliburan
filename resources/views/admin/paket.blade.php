@@ -32,7 +32,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>Nama Paket</th>
-                                {{-- <th>Harga Paket</th> --}}
+                                <th>Durasi</th>
                                 {{-- <th>Kuota Paket</th> --}}
                                 <th>Action</th>
                             </tr>
@@ -43,7 +43,7 @@
                             <tr>
                                 <td>{{$index++}}</td>
                                 <td>{{$value->nama}}</td>
-                                {{-- <td>{{$value->harga}}</td> --}}
+                                <td>{{$value->durasi}}</td>
                                 {{-- <td>{{$value->kuota}}</td> --}}
                                 <td> 
                                     <a class="btn btn-light edit-des" data-id="{{$value->id}}" href="javascript:void(0)"><span class="fas fa-pencil-alt"></span> Edit</a> 
@@ -85,6 +85,19 @@
                         <label for="">Nama Paket</label>
                         <input required type="text" name="nama" id="nama" class="form-control">
                     </div>
+                    <div class="form-group">
+                      <label for="">Durasi</label>
+                      <input required type="text" name="durasi" placeholder="contoh : 3H2M" id="durasi" class="form-control">
+                  </div>
+                  <div class="form-group">
+                      <label for="">Kota</label>
+                      <select required class="form-control" id="kota" name="kota">
+                          <option disabled selected>--pilih kota--</option>
+                          @foreach($kota as $key => $value)
+                              <option value="{{$value->id}}">{{$value->nama}}</option>
+                          @endforeach
+                      </select>
+                  </div>
                     {{-- <div class="form-group">
                         <label for="">Harga Paket</label>
                         <input required type="text" name="harga" id="harga" class="form-control">
@@ -112,8 +125,8 @@
       
     $('#add').click(function(){
         $('#nama').val('')
-        $('#kuota').val('1')
-        $('#harga').val('')
+        $('#durasi').val('')
+        $('#kota').val('')
         $('#desc').val('')
             $('#modal-default').modal('show')
         $('#id').val('')
@@ -123,12 +136,12 @@
         var url = "{{url('mitra/paket/')}}"+'/'+id
         $.get( url, function(data) {
             nama = data.nama
-            harga = data.harga
-            kuota = data.kuota
+            kota = data.kota
+            durasi = data.durasi
             desc = data.desc
             $('#nama').val(nama)
-            $('#kuota').val(kuota)
-            $('#harga').val(harga)
+            $('#durasi').val(durasi)
+            $('#kota').val(kota)
             $('#desc').val(desc)
             $('#id').val(id)
             $('#modal-default').modal('show')

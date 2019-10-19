@@ -105,8 +105,9 @@
                                         <div class="price"> <span style="font-size: 14px">Start From</span> <br> Rp. {{number_format($val->startfrom, '0', '.', ',')}}</div></div>
                                     <div class="img-cpt">
                                         <h4>{{$val->nama}}</h4>
-                                        <p>Destinasi :  </p>
-                                        <div class="location"><span class="fas fa-map-pin"></span> Malang</div>
+                                        <p>{{$val->durasi}} </p>
+                                        {{-- <p>Destinasi :  </p> --}}
+                                        <div class="location"><span class="fas fa-map-pin"></span> {{$val->namaKota}}</div>
                                     </div>
                                 </div>
                             </a>
@@ -160,7 +161,7 @@
             margin:10,
             loop:true,        
             autoplay:true,
-            autoplayTimeout:1000,
+            autoplayTimeout:3000,
             autoplayHoverPause:true,
             responsiveClass:true,
             responsive:{

@@ -8,9 +8,10 @@ use App\Paket;
 use App\PektDes;
 use App\Destinasi;
 use App\PaketPax;
+use App\Kota;
 use Redirect,Response;
 use Session;
-
+use Auth;
 
 class PaketController extends Controller
 {
@@ -21,8 +22,9 @@ class PaketController extends Controller
      */
     public function index()
     {
+        $kota = Kota::all();
         $paket = Paket::all();
-        $data = array('paket' =>$paket);
+        $data = array('paket' =>$paket, 'kota' => $kota);
         return view('admin.paket')->with($data);
     }
 
@@ -48,9 +50,10 @@ class PaketController extends Controller
         Paket::updateOrCreate(['id' => $id],
                     [
                         'nama' => $request->nama,
-                        'harga' => $request->harga,
-                        'kuota' => $request->kuota,
+                        'durasi' => $request->durasi,
                         'desc' => $request->desc,
+                        'kota' => $request->kota,
+                        'user' => Auth::user()->id
                     ]);
         Session::flash('sukses','Menyimpan data berhasil');
         return redirect()->route('paket.index')->with('success', 'Post tersimpan');

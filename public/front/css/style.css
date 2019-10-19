@@ -108,7 +108,7 @@
 }
 .location{
   font-size: 13px;
-  color: rgba(243, 183, 42, 0.89);
+  color: rgba(199, 158, 63, 0.89);
 }
 .price{
   position: absolute;
@@ -246,7 +246,7 @@ footer{
     width: 100%!important;
   }
   .content-sec{
-    padding: 20px;
+    padding: 10px;
   }
   footer{
     padding: 20px;

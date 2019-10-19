@@ -83,7 +83,7 @@
                                     <table class="table table-striped" style="width: 100%">
                                         <tr>
                                             <td><h4>@{{dest.pp_pax}} Pax</h4>
-                                                <p>Rp. @{{dest.pp_price}} </p>
+                                                <p>Rp. @{{dest.pp_price}} /pax</p>
                                             </td>
                                             <td style="width: 10%"><button v-on:click="select(dest.pp_pax, dest.pp_price,dest.pp_id)" v-bind:class="{'btn-success': orders.id==dest.pp_id}" class="btn" style="width: 100%" v-html="txt(dest.pp_id)"></button></td>
                                         </tr>
@@ -191,7 +191,7 @@
             el: '#app',
             data: {
                 fullPage: true,
-                selectedMp: 3,
+                selectedMp: 1,
                 meeting_point: [],
                 mode: 'single',
                 selectedDate: new Date("{{$tgl}}"),
@@ -286,7 +286,7 @@
                 },
                 select:function(nm, prc, idd){
                     this.orders.nama = nm
-                    this.orders.price = prc
+                    this.orders.price = prc*nm
                     this.orders.id = idd
                 },
                 numformat: function(num){

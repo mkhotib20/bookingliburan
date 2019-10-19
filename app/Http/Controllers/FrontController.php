@@ -108,10 +108,12 @@ class FrontController extends Controller
     public function index()
     {
         $paket = DB::select("
-            SELECT paket.id, paket.nama, MIN(pp_price) as startfrom, paket.cover_img, paket_pax.pp_price FROM des_paket, paket_pax, paket, destinasi 
+            SELECT paket.durasi, paket.id, paket.nama, kota.nama as namaKota, MIN(pp_price) as startfrom, paket.cover_img, paket_pax.pp_price 
+            FROM kota, des_paket, paket_pax, paket, destinasi 
             WHERE des_paket.dp_paket = paket.id
             AND des_paket.dp_des = destinasi.id
             AND paket_pax.pp_paket = paket.id
+            AND paket.kota = kota.id
             GROUP BY paket.id
         ");
         $article = Article::orderBy('created_at', 'desc')->take(4)->get();
@@ -170,7 +172,7 @@ class FrontController extends Controller
         ->join('destinasi', 'destinasi.id', '=', 'des_paket.dp_des')
         ->join('paket', 'paket.id', '=', 'des_paket.dp_paket')
         ->where('des_paket.dp_paket', $id)
-        ->select('destinasi.*', 'paket.id as paketId', 'paket.nama as namaPaket', 'paket.harga as hargaP', 'paket.desc', 'paket.cover_img');
+        ->select('destinasi.*', 'paket.id as paketId', 'paket.nama as namaPaket', 'paket.desc', 'paket.cover_img');
         $pp = PaketPax::where('pp_paket', $id)->orderBy('pp_pax', 'desc')->get();
         $articles = Article::orderBy('created_at', 'desc')->take(4)->get();
         $data = array('pd' => $pd->get(), 'meta' => $pd->first()->namaPaket, 'pp' => $pp, 'articles' => $articles);
