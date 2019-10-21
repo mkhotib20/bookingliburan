@@ -222,6 +222,9 @@
                                 </div>
                                 <div class="tab-pane fade" id="ket" role="tabpanel" aria-labelledby="contact-tab">
                                     <p>Apabila hari besar terkena charge tambahan</p>
+                                    <p>
+                                        <?= $pd[0]->noted ?>
+                                    </p>
                                 </div>
                             </div>
                             <a style="color: white" href="{{url('result?id_paket='.$pd[0]->paketId)}} " class="btn btn-info btn-block btn-cari">ORDER NOW</a>

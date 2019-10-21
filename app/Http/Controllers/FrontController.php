@@ -174,7 +174,7 @@ class FrontController extends Controller
         ->join('destinasi', 'destinasi.id', '=', 'des_paket.dp_des')
         ->join('paket', 'paket.id', '=', 'des_paket.dp_paket')
         ->where('des_paket.dp_paket', $id)
-        ->select('destinasi.*', 'paket.id as paketId', 'paket.nama as namaPaket', 'paket.desc', 'paket.cover_img');
+        ->select('destinasi.*', 'paket.id as paketId', 'paket.noted', 'paket.nama as namaPaket', 'paket.desc', 'paket.cover_img');
         $ie = IncludeEx::where("paket", $id)->get();
         $pp = PaketPax::where('pp_paket', $id)->orderBy('pp_pax', 'desc')->get();
         $articles = Article::orderBy('created_at', 'desc')->take(4)->get();

@@ -44,7 +44,13 @@
                     <input type="file" accept="image/*" name="cover_img" data-default-file="{{url('public/uploads/img_paket/'.$cover_img )}}" class="dropify" />
                 </div>
                 <div class="col-md-12 mb-3 my-2">
-                    <textarea name="desc" class="textarea" placeholder="Place some text here"
+                  <label for="">Noted (Informasi Tambahan)</label>  
+                    <textarea name="noted" class="simpleTxt" placeholder="Place some text here"
+                    style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{$des}}</textarea>
+                </div>
+                <div class="col-md-12 mb-3 my-2">
+                  <label for="">Deskripsi Paket</label>  
+                  <textarea name="desc" class="textarea" placeholder="Place some text here"
                     style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{$des}}</textarea>
                 </div>
             </form>
@@ -77,6 +83,9 @@
       });
       $('.textarea').summernote({
         height: 300
+      })
+      $('.simpleTxt').summernote({
+        toolbar: false
       })
     })
 </script>

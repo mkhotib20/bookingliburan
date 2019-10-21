@@ -8,7 +8,7 @@ class Paket extends Model
 {
     protected $table = 'paket';
     protected $primaryKey = 'id';
-    protected $fillable = ['user', 'nama', 'durasi', 'desc', 'cover_img', 'kota'];
+    protected $fillable = ['user', 'nama', 'durasi', 'desc', 'cover_img', 'kota', 'noted'];
     protected $dates = ['created_at', 'updated_at'];
     
 }

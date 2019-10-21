@@ -194,6 +194,7 @@ class PaketController extends Controller
             Paket::updateOrCreate(
                 ['id' => $req->id],
                 [
+                    'noted' => $req->noted,
                     'desc' => $req->desc,
                     'cover_img' => $cover_img
                 ]
