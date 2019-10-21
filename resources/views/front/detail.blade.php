@@ -181,11 +181,7 @@
                                                 <div class="line text-muted"></div>
                                                 <div class="separator text-muted">
                                                     <time><i class="fas fa-calendar mr-2"></i> {{$val->jadwal}}</time>
-                                                </div>
-                                                <article class="panel panel-danger panel-outline">
-                                                    <div style="white-space: pre-line;">
-                                                        {{$val->content}}
-                                                    </div>
+                                                </div><article class="panel panel-danger panel-outline"><div style="white-space: pre-line;">{{$val->content}}</div>
                                                 </article> 
                                             @endforeach                                    
                                         

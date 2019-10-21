@@ -62,7 +62,6 @@ class PaketController extends Controller
                     [
                         'nama' => $request->nama,
                         'durasi' => $request->durasi,
-                        'desc' => $request->desc,
                         'kota' => $request->kota,
                         'user' => Auth::user()->id
                     ]);
