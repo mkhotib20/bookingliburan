@@ -50,7 +50,7 @@ Route::prefix('mitra')->group(function () {
     Route::get('paket/list-harga/{id}', 'PaketController@listHarga')->middleware('auth:admin');
     Route::get('paket/list-destinasi/{id}', 'PaketController@listDestinasi')->middleware('auth:admin');
     Route::get('paket/des/{id}', 'PaketController@deskripsi')->middleware('auth:admin');
-    Route::post('paket/save-des', 'PaketController@saveDes')->middleware('auth:admin');
+    // Route::post('paket/save-des', 'PaketController@saveDes')->middleware('auth:admin');
     Route::get('paket/ie/{id}', 'PaketController@includeEx')->middleware('auth:admin');
     Route::get('paket/it/{id}', 'PaketController@iten')->middleware('auth:admin');
     Route::post('paket/save-des', 'PaketController@saveDes')->middleware('auth:admin');
