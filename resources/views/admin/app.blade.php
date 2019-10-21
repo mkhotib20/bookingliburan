@@ -87,16 +87,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <li class="nav-item">
-                <a href="{{url('mitra/transaksi')}}" class="nav-link ">
+            <li class="nav-item ">
+                <a href="{{url('mitra/transaksi')}}" class="nav-link  @if(Request::segment(2) == "transaksi") active @endif">
                   <i class="nav-icon fas fa-th"></i>
                   <p>
-                   Transaksi
+                   Transaksi 
                   </p>
                 </a>
               </li>
           <li class="nav-item">
-            <a href="{{url('mitra/destinasi')}}" class="nav-link ">
+            <a href="{{url('mitra/destinasi')}}" class="nav-link @if(Request::segment(2) == "destinasi") active @endif">
               <i class="nav-icon fas fa-map"></i>
               <p>
                 Destinasi
@@ -104,7 +104,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{url('mitra/kota')}}" class="nav-link ">
+            <a href="{{url('mitra/kota')}}" class="nav-link @if(Request::segment(2) == "kota") active @endif">
               <i class="nav-icon fas fa-map-marker"></i>
               <p>
                 Kota
@@ -112,7 +112,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{url('mitra/paket')}}" class="nav-link ">
+            <a href="{{url('mitra/paket')}}" class="nav-link @if(Request::segment(2) == "paket") active @endif">
               <i class="nav-icon fas fa-briefcase"></i>
               <p>
                 Paket
@@ -121,7 +121,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </li>
           @if(Auth::user()->role == 1)
           <li class="nav-item">
-            <a href="{{url('mitra/article')}}" class="nav-link ">
+            <a href="{{url('mitra/article')}}" class="nav-link @if(Request::segment(2) == "article") active @endif">
               <i class="nav-icon fas fa-book"></i>
               <p>
                 Article
@@ -129,7 +129,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{url('mitra/article')}}" class="nav-link ">
+            <a href="{{url('mitra/article')}}" class="nav-link @if(Request::segment(2) == "as") active @endif">
               <i class="nav-icon fas fa-users"></i>
               <p>
                 Manajemen Mitra
@@ -137,7 +137,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{url('mitra/rekening')}}" class="nav-link ">
+            <a href="{{url('mitra/rekening')}}" class="nav-link @if(Request::segment(2) == "rekening") active @endif">
               <i class="nav-icon fas fa-money-bill"></i>
               <p>
                 Manajemen Rekening

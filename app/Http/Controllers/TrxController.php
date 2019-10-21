@@ -15,7 +15,9 @@ class TrxController extends Controller
      */
     public function index()
     {
-        //
+        $trx = Trx::all();
+        $data = array('trx' => $trx);
+        return view('admin.trx')->with($data);
     }
 
     /**
