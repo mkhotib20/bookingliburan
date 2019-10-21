@@ -26,9 +26,12 @@ Route::group(['as' => 'api.'], function () {
     Route::get('/destinasi', 'AdminDestinasiController@json_des');
     Route::get('/paket', 'PaketController@json_paket');
     Route::get('/paket/{id}', 'PaketController@json_paket_wh');
+    Route::get('/getIe/{id}', 'PaketController@json_ie');
+    Route::post('paket/addIe', 'PaketController@add_ie');
     Route::get('/pd/{id}', 'PaketController@json_pd');
     Route::get('/pp/{id}', 'PaketController@json_pp');
     Route::post('/pp/add', 'PaketController@add_pp');
     Route::delete('/pp/destroy', 'PaketController@pp_destroy');
+    Route::delete('/ie/destroy', 'PaketController@ie_destroy');
     Route::get('/rek', 'BankController@json_rek');
 });

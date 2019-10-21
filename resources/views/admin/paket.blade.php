@@ -15,6 +15,12 @@
     <!-- /.content-header -->
 
     <!-- Main content -->
+    <style>
+      .dropdown-menu a, .dropdown-menu button{
+        width: 100%;
+        text-align: left;
+      }
+    </style>
     <div class="content">
       <div class="container-fluid">
         <div class="row">
@@ -46,15 +52,26 @@
                                 <td>{{$value->durasi}}</td>
                                 {{-- <td>{{$value->kuota}}</td> --}}
                                 <td> 
-                                    <a class="btn btn-light edit-des" data-id="{{$value->id}}" href="javascript:void(0)"><span class="fas fa-pencil-alt"></span> Edit</a> 
-                                    <form action="{{ route('paket.destroy', $value->id) }}" method="POST">
-                                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                        @method('DELETE')
-                                        <button class="btn btn-light" type="submit"><span class="fas fa-trash"></span> Hapus</button>
-                                    </form>
-                                    <a class="btn btn-light edit-des" href="{{url('mitra/paket/list-harga/'.$value->id)}}"><span class="fas fa-money-bill"></span> Harga per Pax</a> <br> 
-                                    <a class="btn btn-light edit-des" href="{{url('mitra/paket/list-destinasi/'.$value->id)}}"><span class="fas fa-list"></span> Destinasi</a>
-                                    <a class="btn btn-light edit-des" href="{{url('mitra/paket/des/'.$value->id)}}"><span class="fas fa-list"></span> Deskripsi & itinerary</a> 
+                                    <div class="dropdown show">
+                                        <a class="btn btn-default dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" 
+                                        aria-haspopup="true" aria-expanded="false">
+                                          Options
+                                        </a>
+                                      
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                            <a class="btn btn-light edit-des" data-id="{{$value->id}}" href="javascript:void(0)"> Edit</a> 
+                                            <form action="{{ route('paket.destroy', $value->id) }}" method="POST">
+                                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                @method('DELETE')
+                                                <button class="btn btn-light" type="submit"> Hapus</button>
+                                            </form>
+                                            <a class="btn btn-light edit-des" href="{{url('mitra/paket/list-harga/'.$value->id)}}"> Harga per Pax</a>  
+                                            <a class="btn btn-light edit-des" href="{{url('mitra/paket/list-destinasi/'.$value->id)}}"> Destinasi</a> 
+                                            <a class="btn btn-light edit-des" href="{{url('mitra/paket/des/'.$value->id)}}"> Deskripsi</a> 
+                                            <a class="btn btn-light edit-des" href="{{url('mitra/paket/it/'.$value->id)}}"> Itinerary </a> 
+                                            <a class="btn btn-light edit-des" href="{{url('mitra/paket/ie/'.$value->id)}}"> Include & Exclude</a>
+                                        </div>
+                                      </div>
                                 </td>
                               </tr>
                               @endforeach

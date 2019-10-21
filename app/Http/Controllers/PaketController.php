@@ -9,6 +9,7 @@ use App\PektDes;
 use App\Destinasi;
 use App\PaketPax;
 use App\Kota;
+use App\IncludeEx;
 use Redirect,Response;
 use Session;
 use Auth;
@@ -37,7 +38,11 @@ class PaketController extends Controller
     {
         //
     }
-
+    public function includeEx($id)
+    {
+        $data = array('id' => $id, 'paket' => Paket::find($id));
+        return view('admin.add-ie')->with($data); 
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -95,9 +100,29 @@ class PaketController extends Controller
         $data['status'] = '000';
         return $data;
     }
+    public function ie_destroy(Request $req)
+    {
+        $pp = includeEx::find($req->id);
+        $pp->delete();
+        $data['status'] = '000';
+        return $data;
+    }
     public function update(Request $request, $id)
     {
         //
+    }
+    public function json_ie($key)
+    {
+        return IncludeEx::where("paket", $key)->get();
+    }
+    public function add_ie(Request $req)
+    {
+        $paket = IncludeEx::create([
+            "is_include" => $req->is_include,
+            "name" => $req->name,
+            "paket" => $req->id
+        ]);
+        return $paket;
     }
     public function add_pp(Request $req)
     {

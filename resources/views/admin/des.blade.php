@@ -26,7 +26,7 @@
               </h3>
               <!-- tools box -->
               <div class="card-tools">
-                <a href="{{url('mitra/article')}}" class="btn btn-tool btn-sm">
+                <a href="{{url('mitra/paket')}}" class="btn btn-tool btn-sm">
                   <i class="fas fa-arrow-left"></i> Back</a>
                   <a id="save" style="color:green; cursor: pointer" class="btn btn-tool btn-sm">
                     <i class="fas fa-save"></i> Save</a>
