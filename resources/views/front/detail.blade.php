@@ -177,22 +177,17 @@
                                 <div class="tab-pane fade" id="iten" role="tabpanel" aria-labelledby="iten-tab">
                                         {{-- <p>  //$pd[0]->desc </p> --}}
                                         <div class="timeline">
-    
-                                            <div class="line text-muted"></div>
-                                    
-                                            <div class="separator text-muted">
-                                                <time>Hari pertama</time>
-                                            </div>
-                                            <article class="panel panel-danger panel-outline">
-                                        
-                                                <!-- Icon -->
-                                                <div class="panel-heading icon">
-                                                    <i class="glyphicon glyphicon-heart"></i>
+                                            @foreach ($iten as $item => $val)
+                                                <div class="line text-muted"></div>
+                                                <div class="separator text-muted">
+                                                    <time><i class="fas fa-calendar mr-2"></i> {{$val->jadwal}}</time>
                                                 </div>
-                                                <p> <?= $pd[0]->desc ?> </p>
-
-                                        
-                                            </article>                                    
+                                                <article class="panel panel-danger panel-outline">
+                                                    <div style="white-space: pre-line;">
+                                                        {{$val->content}}
+                                                    </div>
+                                                </article> 
+                                            @endforeach                                    
                                         
                                         </div>
                                 </div>
@@ -220,7 +215,7 @@
                                     @endforeach
                                 </div>
                                 <div class="tab-pane fade show active"  id="home" role="tabpanel" aria-labelledby="home-tab">
-                                    <p>Des</p>    
+                                    <p> <?= $pd[0]->desc ?> </p>
                                 </div>
                                 <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
                                     @foreach($pp as $key => $val)

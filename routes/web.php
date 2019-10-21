@@ -51,6 +51,7 @@ Route::prefix('mitra')->group(function () {
     Route::get('paket/des/{id}', 'PaketController@deskripsi')->middleware('auth:admin');
     Route::post('paket/save-des', 'PaketController@saveDes')->middleware('auth:admin');
     Route::get('paket/ie/{id}', 'PaketController@includeEx')->middleware('auth:admin');
+    Route::get('paket/it/{id}', 'PaketController@iten')->middleware('auth:admin');
     Route::post('paket/save-des', 'PaketController@saveDes')->middleware('auth:admin');
     Route::post('paket/tambah-pd', 'PaketController@tPd')->middleware('auth:admin');
     Route::resource('paket', 'PaketController')->middleware('auth:admin');

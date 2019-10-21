@@ -11,6 +11,7 @@ use App\ItemDes;
 use App\Article;
 use App\Paket;
 use App\IncludeEx;
+use App\It;
 use App\PaketPax;
 use App\MeetingPoint;
 use App\Http\Controllers\HomeController;
@@ -177,7 +178,8 @@ class FrontController extends Controller
         $ie = IncludeEx::where("paket", $id)->get();
         $pp = PaketPax::where('pp_paket', $id)->orderBy('pp_pax', 'desc')->get();
         $articles = Article::orderBy('created_at', 'desc')->take(4)->get();
-        $data = array('pd' => $pd->get(), 'ie' => $ie, 'meta' => $pd->first()->namaPaket, 'pp' => $pp, 'articles' => $articles);
+        $iten = It::where("paket", $id)->get();
+        $data = array('pd' => $pd->get(), 'iten' => $iten,'ie' => $ie, 'meta' => $pd->first()->namaPaket, 'pp' => $pp, 'articles' => $articles);
         return view("front.detail")->with($data);
     }
     public function hasilDestinasi()
