@@ -100,7 +100,7 @@
         /* overflow: auto;
         white-space: nowrap; */
     }  
-    .nav-item{
+    .nav-scroll{
         width: 100%;
         display: none;
     }
@@ -154,19 +154,19 @@
                             <div class="line"></div>
                             <ul style="position: relative" class="nav nav-tabs my-3" id="myTab" role="tablist">
                                {{-- <div class="scroller"> --}}
-                                    <li class="nav-item active-nav">
+                                    <li class="nav-item nav-scroll active-nav">
                                         <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Deskripsi</a>
                                     </li>
-                                    <li class="nav-item">
+                                    <li class="nav-item nav-scroll">
                                             <a class="nav-link" id="iten-tab" data-toggle="tab" href="#iten" role="tab" aria-controls="iten" aria-selected="false">Itinerary</a>
                                     </li>
-                                    <li class="nav-item">
+                                    <li class="nav-item nav-scroll">
                                         <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">List Harga</a>
                                     </li>
-                                    <li class="nav-item">
+                                    <li class="nav-item nav-scroll">
                                         <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Include & Exclude</a>
                                     </li>
-                                    <li class="nav-item">
+                                    <li class="nav-item nav-scroll">
                                         <a class="nav-link" id="ket-tab" data-toggle="tab" href="#ket" role="tab" aria-controls="contact" aria-selected="false">Keterangan Tambahan</a>
                                     </li>
                                {{-- </div> --}}
@@ -251,7 +251,7 @@
            if (current!=0) {
                 $(menus[current]).removeClass("show")
                 $(menus[current]).removeClass("active")
-                $(tabs[current]).parents(".nav-item").removeClass("active-nav")
+                $(tabs[current]).parents(".nav-scroll").removeClass("active-nav")
                 current--
                 setActive(current)
            }
@@ -261,7 +261,7 @@
            if (current<menus.length-1) {
                 $(menus[current]).removeClass("show")
                 $(menus[current]).removeClass("active")
-                $(tabs[current]).parents(".nav-item").removeClass("active-nav")
+                $(tabs[current]).parents(".nav-scroll").removeClass("active-nav")
                 current++
                 setActive(current)
            }
@@ -270,7 +270,7 @@
        function setActive(idx) {
            $(menus[idx]).addClass("show")
            $(menus[idx]).addClass("active")
-           $(tabs[idx]).parents(".nav-item").addClass("active-nav")
+           $(tabs[idx]).parents(".nav-scroll").addClass("active-nav")
            $(tabs[idx]).addClass("active")
        }
    </script>

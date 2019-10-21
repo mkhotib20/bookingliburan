@@ -17,6 +17,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="{{asset('public/admin')}}/dist/css/adminlte.min.css">
   <link rel="stylesheet" href="{{asset('public/admin')}}/plugins/datatables-bs4/css/dataTables.bootstrap4.css">
   <link rel="stylesheet" href="{{asset('public/admin')}}/plugins/dropify/css/dropify.min.css">
+  <link rel="stylesheet" href="{{asset('public/select2')}}/select2.min.css">
   <link rel="stylesheet" href="{{asset('public/toggle')}}/bootstrap-toggle.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
@@ -188,6 +189,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{{asset('public/admin')}}/plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
 <script src="{{asset('public/admin')}}/plugins/sweetalert2/sweetalert2.min.js"></script>
 <script src="{{asset('public/admin')}}/plugins/dropify/js/dropify.min.js"></script>
+<script src="{{asset('public/select2')}}/select2.full.min.js"></script>
 {{-- <script src="{{asset('public/toggle')}}/bootstrap-toggle.min.js"></script> --}}
 <!-- Summernote -->
 <script src="{{asset('public/admin')}}/plugins/summernote/summernote-bs4.min.js"></script>

@@ -201,7 +201,13 @@ class PaketController extends Controller
                 );
         }
         else{
-            echo 'as';
+            Paket::updateOrCreate(
+                ['id' => $req->id],
+                [
+                    'noted' => $req->noted,
+                    'desc' => $req->desc,
+                ]
+                );
         }
         // return $req->desc;
         Session::flash('sukses','Menyimpan data berhasil');

@@ -1,6 +1,6 @@
 @extends('front.app')
 @section('content')
-<header>
+<header style="padding: 0">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
           
           <div class="carousel-inner" role="listbox">
@@ -15,17 +15,10 @@
             <div class="carousel-item" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('{{asset("public/front/img/jodipan.jpg")}}') center no-repeat; background-size: cover">
             </div>
           </div>
-         <!-- <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-              </a>
-          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-              </a>-->
         </div>
-        <div class="carousel-caption d-md-block bg-crs">
-            <h2 class="main-title">@lang('messages.welcome')</h2>
+        <div class="carousel-caption bg-crs">
+            <div class="container">
+                <h2 class="main-title">@lang('messages.welcome')</h2>
             <p>Temukan lebih dari 100 destinasi wisata</p>
             <form id="formCari" action="{{url('result')}} " method="GET">
             <input type="hidden" name="jkjaBA782hJA" value="{{csrf_token()}}">
@@ -56,6 +49,7 @@
                     </div>
                 </div>
             </form>
+            </div>
         </div>
     </header>
     <section class="content-sec">
@@ -66,13 +60,13 @@
             </div>
             <div class="sec-content">
                 <div class="row">
-                    <div v-for="service in services" class="col-6 col-lg-2 my-2">
+                    <div v-for="service in services" class="col-4 col-lg-2 my-2">
                         <a v-bind:href="'{{url('service/detail')}}/'+service.key ">
                             <div class="card-shell">
                                 <div class="card card-1">
                                     <img class="img-srv" v-bind:src="service.icon" alt="">
                                     <br>
-                                    <center><p><b>@{{service.label}}</b></p></center>
+                                    <center><p class="cpt-card"><b>@{{service.label}}</b></p></center>
                                 </div>
                                 <div class="px-3">
                                     {{-- <div class="line cw mx-auto"></div> --}}
@@ -164,21 +158,19 @@
             autoplayTimeout:3000,
             autoplayHoverPause:true,
             responsiveClass:true,
+            navText : ['<i class="fas fa-chevron-left" aria-hidden="true"></i>','<i class="fas fa-chevron-right" aria-hidden="true"></i>'],
             responsive:{
                 0:{
                     items:1,
                     nav:true,
-                    navText:["<i class='fas fa-long-arrow-alt-left'></i>","<i class='fas fa-long-arrow-alt-right'></i>" ],
                 },
                 600:{
                     items:2,
-                    nav:false,
-                    navText:["<i class='fas fa-long-arrow-alt-left'></i>","<i class='fas fa-long-arrow-alt-right'></i>" ],
+                    nav:true,
                 },
                 1000:{
                     items:3,
                     nav:true,
-                    navText:["<i class='fas fa-long-arrow-alt-left'></i>","<i class='fas fa-long-arrow-alt-right'></i>" ],
                 }
             }
         })

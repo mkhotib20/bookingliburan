@@ -13,7 +13,8 @@
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
-
+<style>
+</style>
     <!-- Main content -->
     <div class="content">
       <div class="container-fluid">
@@ -29,7 +30,7 @@
                     <input type="hidden" name="paket" value="{{$idPaket}}">
                     <div class="row">
                         <div class="col-md-6">
-                            <select required name="destinasi" class="form-control">
+                            <select required name="destinasi" id="select2" class="form-control">
                                 <option disabled selected>--pilih destinasi--</option>
                                 @foreach($dest as $key => $val)
                                 <option 
@@ -77,4 +78,11 @@
       </div>
     </div>
   </div>
+  @endsection
+  @section('custom-script')
+      <script>
+        $(document).ready(function() {
+            $('#select2').select2();
+        });
+      </script>
   @endsection

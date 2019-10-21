@@ -57,6 +57,7 @@ Route::prefix('mitra')->group(function () {
     Route::post('paket/tambah-pd', 'PaketController@tPd')->middleware('auth:admin');
     Route::resource('paket', 'PaketController')->middleware('auth:admin');
     Route::resource('rekening', 'BankController')->middleware('auth:admin');
+    Route::get('/paket/delDp/{id}', 'PaketController@delDp');
 });
 
 Route::prefix('user')->group(function () {
