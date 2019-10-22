@@ -99,9 +99,12 @@
                                         <div class="price"> <span style="font-size: 14px">Start From</span> <br> Rp. {{number_format($val->startfrom, '0', '.', ',')}}</div></div>
                                     <div class="img-cpt">
                                         <h4>{{$val->nama}}</h4>
-                                        <p>{{$val->durasi}} </p>
+                                        {{-- <p>{{$val->durasi}} </p> --}}
                                         {{-- <p>Destinasi :  </p> --}}
-                                        <div class="location"><span class="fas fa-map-pin"></span> {{$val->namaKota}}</div>
+                                        {{-- <span class="fas fa-map-pin"></span> --}}
+                                        <div class="row iden-paket">
+                                            <div class="col text-left mt-3">Kota {{$val->namaKota}} <br><span class="fas fa-clock"></span>  {{$val->durasi}}</div>
+                                        </div>
                                     </div>
                                 </div>
                             </a>
@@ -134,7 +137,12 @@
                                     </div></div>
                                     <div class="img-cpt">
                                         <h4>{{$val->title}}</h4>
-                                        <div style="opacity: 0.6" ><span class="fas fa-eye"></span> {{$val->views}} </div>
+                                        {{-- <div class="row iden-paket mt-3">
+                                                <div class="col-12 text-center"> <span class="fas fa-eye"></span> {{$val->views}}</div>
+                                                <div class="col-12 text-center">{{date("d")-date("d", strtotime($val->created_at))}} hari yang lalu</div>
+                                            </div> --}}
+                                        <div style="opacity: 0.6; margin-top: 20px; margin-bottom: 9px; font-size: 13px" ><span class="fas fa-eye"></span> {{$val->views}} </div>
+                                        <div style="opacity: 0.6; font-size: 13px" ><span class="fas fa-calendar"></span> {{date("d")-date("d", strtotime($val->created_at))}} hari yang lalu </div>
                                     </div>
                                 </div>
                             </a>
@@ -154,7 +162,7 @@
             loop:true,
             margin:10,
             loop:true,        
-            autoplay:true,
+            autoplay:false,
             autoplayTimeout:3000,
             autoplayHoverPause:true,
             responsiveClass:true,
@@ -162,11 +170,11 @@
             responsive:{
                 0:{
                     items:1,
-                    nav:true,
+                    nav:false,
                 },
                 600:{
                     items:2,
-                    nav:true,
+                    nav:false,
                 },
                 1000:{
                     items:3,
@@ -191,7 +199,7 @@ Vue.component('loading', VueLoading)
                     {label: "Outbond", icon: "{{asset('public/front/icon/')}}/outbond.svg", key: "outbond"},
                     {label: "Tiket Event", icon: "{{asset('public/front/icon/')}}/tiket.svg", key: "event"},
                     {label: "Sewa Motor", icon: "{{asset('public/front/icon/')}}/motor.svg", key: "motor"},
-                    {label: "Sewa Villa", icon: "{{asset('public/front/icon/')}}/vila.svg", key: "villa"},
+                    {label: "Booking Hotel", icon: "{{asset('public/front/icon/')}}/vila.svg", key: "villa"},
                 ],
             }
         })

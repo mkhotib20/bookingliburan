@@ -60,10 +60,6 @@
 .card img{
   width: 100%;
 }
-.img-srv{
-  margin-bottom: 15px;
-  height: 70px;
-}
 .page-header{
   min-height: 300px;
 }
@@ -93,9 +89,11 @@
   text-align: center;
 }
 .img-cpt{
+  width: 100%;
   padding: 20px;
 }
 .img-cpt h4{
+  font-size: 17px;
   font-weight: bold;
   margin: unset;
 }
@@ -104,8 +102,12 @@
   opacity: 0.6;
   margin-bottom: 5px;
 }
-.location{
-  font-size: 13px;
+.iden-paket{
+  font-size: 17px;
+  /* position: absolute; */
+  bottom: 0;
+  list-style-type: none;
+  padding: 0;
   color: rgba(199, 158, 63, 0.89);
 }
 .price{
@@ -149,13 +151,7 @@
 .card-paket:hover .box-img img{
   filter: brightness(50%);
 }
-.card-shell:hover {
-  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-}
-.card-shell:hover .card-title{
-  display: block;
-}
+
 
 .bg-dark .nav-link{
   color: black!important;
@@ -230,9 +226,9 @@ footer{
 .owl-prev {
   width: auto;
   /* // width: 15px; */
-  height: 100px;
   background-color: rgb(228, 160, 51)!important;
-  opacity: 0.35;
+  opacity: 0.5;
+  border-radius: 0!important;
   position: absolute;
   top: 30%;
   display: block !important;
@@ -244,9 +240,9 @@ footer{
 .owl-next {
   width: auto;
   background-color: rgb(228, 160, 51)!important;
-  opacity: 0.35;
+  opacity: 0.5;
+  border-radius: 0!important;
   /* width: 15px; */
-  height: 100px;
   position: absolute;
   top: 30%;
   right: 0;
@@ -259,8 +255,15 @@ footer{
   font-size: 2.5rem;
 }
 @media(max-width: 991px){
+  .owl-next, .owl-prev{
+    height: 40px;
+  }
+  .img-srv{
+    margin-bottom: 15px;
+    height: 30px;
+  }
   .cpt-card{
-    font-size: 12pt;
+    font-size: 9pt;
   }
   .card{
     background: unset;
@@ -275,6 +278,12 @@ footer{
   }
   .box-img{
     height: auto;
+  }
+  .card-shell{
+    border: 1px solid rgb(223, 223, 223);
+    padding-top: 12px;
+    width: 100%;
+    border-radius: 15px;
   }
   .ph-title{
     margin-top: 100px;
@@ -298,6 +307,24 @@ footer{
 }
 /*pc++*/
 @media(min-width: 991px){
+  .owl-next, .owl-prev{
+    height: 100px;
+  }
+  .card-paket{
+    min-height: 300px;
+  }
+  .card-shell:hover {
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  }
+  .card-shell:hover .card-title{
+    display: block;
+  }
+  
+.img-srv{
+  margin-bottom: 15px;
+  height: 70px;
+}
   .main-title{
     font-size: 2em;
     font-weight: bold;
