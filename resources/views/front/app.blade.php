@@ -25,6 +25,7 @@ $title = (isset($meta)) ? $meta.' - Booking Liburan' : 'Booking Liburan | Temuka
     <link rel="stylesheet" href="{{asset('public/izi')}}/iziToast.min.css">
     <link rel="stylesheet" href="{{asset('public/owl')}}/owl.carousel.min.css">
     <link rel="stylesheet" href="{{asset('public/owl')}}/owl.theme.default.min.css">
+    {{-- <link rel="stylesheet" href="{{asset('public/deso')}}/jquery.desoslide.min.css"> --}}
     <link href="https://cdn.jsdelivr.net/npm/vue-loading-overlay@3/dist/vue-loading.css" rel="stylesheet">
 
 <?php
@@ -277,6 +278,7 @@ use App\Http\Controllers\HomeController;
 <script src="{{asset('public/v-calendar.umd.min.js')}}"></script>
 <script src="{{asset('public/izi/iziToast.min.js')}}"></script>
 <script src="{{asset('public/owl/owl.carousel.min.js')}}"></script>
+{{-- <script src="{{asset('public/deso/jquery.desoslide.min.js')}}"></script> --}}
 
 <script src="https://cdn.jsdelivr.net/npm/vue-loading-overlay@3"></script>
 @error('email')

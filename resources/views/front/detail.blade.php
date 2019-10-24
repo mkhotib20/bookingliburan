@@ -146,7 +146,22 @@
                 <div class="row">
                     <div class="col-md-9 my-2">
                         <div class="detail-header">
-                            <img src="{{url('public/uploads/img_paket/'.$pd[0]->cover_img )}}" style="width: 100%" alt="">
+                            <div class="crop xl">
+                                <img id="mainImg" src="{{url('public/uploads/img_paket/'.$pd[0]->cover_img )}}" class="img-gas" alt="">
+                            </div>
+                            <div>
+                                <ul class="home-thumbs" id="thumbnail">
+                                    <li class="crop s">
+                                        <img onclick="select(this.src)" src="{{url('public/uploads/img_article/img-asasasas.jpeg')}}" 
+                                        data-caption="Caption 1" data-href="LICENSE.md">
+                                    </li>
+                                    <li class="crop s">
+                                        <img onclick="select(this.src)" src="{{url('public/uploads/img_article/img-artikel-pertama-saya-new.png')}}" 
+                                        data-caption="Caption 1" data-href="LICENSE.md">
+                                    </li>
+
+                                </ul>
+                            </div>
                         </div>
                         <div class="detail-content my-3 ">
                             <p>Start from</p>
@@ -244,6 +259,10 @@
     @endsection
     @section('custom-script')
    <script>
+       function select(el) {
+           var src = el
+           $('#mainImg').attr('src', src)
+       }
        var menus = ["#home", "#iten", "#contact", "#profile", "#ket"]
        var tabs = ["#home-tab", "#iten-tab", "#contact-tab", "#profile-tab", "#ket-tab"]
        var current = 0
