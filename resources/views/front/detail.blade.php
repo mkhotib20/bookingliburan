@@ -152,11 +152,11 @@
                             <div>
                                 <ul class="home-thumbs" id="thumbnail">
                                     <li class="crop s">
-                                        <img onclick="select(this.src)" src="{{url('public/uploads/img_article/img-asasasas.jpeg')}}" 
+                                        <img onclick="select(this)" src="{{url('public/uploads/img_article/img-asasasas.jpeg')}}" 
                                         data-caption="Caption 1" data-href="LICENSE.md">
                                     </li>
                                     <li class="crop s">
-                                        <img onclick="select(this.src)" src="{{url('public/uploads/img_article/img-artikel-pertama-saya-new.png')}}" 
+                                        <img onclick="select(this)" src="{{url('public/uploads/img_article/img-artikel-pertama-saya-new.png')}}" 
                                         data-caption="Caption 1" data-href="LICENSE.md">
                                     </li>
 
@@ -260,7 +260,8 @@
     @section('custom-script')
    <script>
        function select(el) {
-           var src = el
+           var src = el.src
+           el.src = $('#mainImg').attr('src')
            $('#mainImg').attr('src', src)
        }
        var menus = ["#home", "#iten", "#contact", "#profile", "#ket"]
