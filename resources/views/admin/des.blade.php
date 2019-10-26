@@ -41,7 +41,7 @@
                 <input type="hidden" value="{{$judul}}" name="namaPaket">
                 
                 <div class="col-md-12 my-2">
-                    <input type="file" accept="image/*" name="cover_img" data-default-file="{{url('public/uploads/img_paket/'.$cover_img )}}" class="dropify" />
+                    <input type="file" accept="image/*" multiple name="cover_img[]" data-default-file="{{url('public/uploads/img_paket/'.$cover_img )}}" class="dropify" />
                 </div>
                 <div class="col-md-12 mb-3 my-2">
                   <label for="">Noted (Informasi Tambahan)</label>  

@@ -8,6 +8,7 @@ use App\Paket;
 use App\PektDes;
 use App\Destinasi;
 use App\PaketPax;
+use App\PaketImage;
 use App\Kota;
 use App\IncludeEx;
 use App\It;
@@ -185,33 +186,48 @@ class PaketController extends Controller
     }
     public function saveDes(Request $req)
     {
-        $tujuan_upload = 'public/uploads/img_paket';
-        if (isset($req->cover_img)) {
-            $file = $req->file('cover_img');
-            $fn = 'img-'.time().$req->namaPaket.'.'.$file->guessExtension();;
-            $file->move($tujuan_upload,$fn);
-            $cover_img = $fn;
-            Paket::updateOrCreate(
-                ['id' => $req->id],
-                [
-                    'noted' => $req->noted,
-                    'desc' => $req->desc,
-                    'cover_img' => $cover_img
-                ]
-                );
+        $total = count($_FILES['cover_img']['name']);
+        for( $i=0 ; $i < $total ; $i++ ) {
+
+            $tmpFilePath = $_FILES['cover_img']['tmp_name'][$i];
+          
+            if ($tmpFilePath != ""){
+                $imageFileType = strtolower(pathinfo($_FILES['cover_img']['name'][$i], PATHINFO_EXTENSION));
+                $fn = 'img-'.time().'-'.strtolower(str_replace(' ','-',$req->namaPaket)).'-'.$i.'.'.$imageFileType;
+                $newFilePath = 'public/uploads/img_paket/'. $fn;
+              if(move_uploaded_file($tmpFilePath, $newFilePath)) {
+                PaketImage::create([
+                    'ip_paket' => $req->id,
+                    'img' => $newFilePath,
+                ]);         
+              }
+              else{
+                  echo 'gagal';
+              }
+            }
         }
-        else{
-            Paket::updateOrCreate(
-                ['id' => $req->id],
-                [
-                    'noted' => $req->noted,
-                    'desc' => $req->desc,
-                ]
-                );
-        }
-        // return $req->desc;
-        Session::flash('sukses','Menyimpan data berhasil');
-        return redirect()->route('paket.index')->with('success', 'Post tersimpan');
+        echo $total;
+        // if ($total>0) {
+        //     Paket::updateOrCreate(
+        //         ['id' => $req->id],
+        //         [
+        //             'cover_img' => $newFilePath,
+        //             'noted' => $req->noted,
+        //             'desc' => $req->desc,
+        //         ]
+        //     );
+        // }
+        // else{    
+        //     Paket::updateOrCreate(
+        //         ['id' => $req->id],
+        //         [
+        //             'noted' => $req->noted,
+        //             'desc' => $req->desc,
+        //         ]
+        //     );
+        // }
+        // Session::flash('sukses','Menyimpan data berhasil');
+        // return redirect()->route('paket.index')->with('success', 'Post tersimpan');
     }
     public function deskripsi($id)
     {
