@@ -69,6 +69,7 @@
                                             <a class="btn btn-light edit-des" href="{{url('mitra/paket/list-destinasi/'.$value->id)}}"> Destinasi</a> 
                                             <a class="btn btn-light edit-des" href="{{url('mitra/paket/des/'.$value->id)}}"> Deskripsi</a> 
                                             <a class="btn btn-light edit-des" href="{{url('mitra/paket/it/'.$value->id)}}"> Itinerary </a> 
+                                            <a class="btn btn-light edit-des" href="{{url('mitra/paket/img/'.$value->id)}}"> Gambar Paket </a> 
                                             <a class="btn btn-light edit-des" href="{{url('mitra/paket/ie/'.$value->id)}}"> Include & Exclude</a>
                                         </div>
                                       </div>

@@ -151,15 +151,12 @@
                             </div>
                             <div>
                                 <ul class="home-thumbs" id="thumbnail">
-                                    <li class="crop s">
-                                        <img onclick="select(this)" src="{{url('public/uploads/img_article/img-asasasas.jpeg')}}" 
-                                        data-caption="Caption 1" data-href="LICENSE.md">
-                                    </li>
-                                    <li class="crop s">
-                                        <img onclick="select(this)" src="{{url('public/uploads/img_article/img-artikel-pertama-saya-new.png')}}" 
-                                        data-caption="Caption 1" data-href="LICENSE.md">
-                                    </li>
-
+                                    @foreach ($img_paket as $item => $val)
+                                        <li class="crop s">
+                                            <img onclick="select(this)" src="{{url('public/uploads/img_paket/'.$val->img)}}" 
+                                            data-caption="Caption 1" data-href="LICENSE.md">
+                                        </li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>

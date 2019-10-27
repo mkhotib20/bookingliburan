@@ -186,54 +186,60 @@ class PaketController extends Controller
     }
     public function saveDes(Request $req)
     {
-        $total = count($_FILES['cover_img']['name']);
-        for( $i=0 ; $i < $total ; $i++ ) {
-
-            $tmpFilePath = $_FILES['cover_img']['tmp_name'][$i];
-          
-            if ($tmpFilePath != ""){
-                $imageFileType = strtolower(pathinfo($_FILES['cover_img']['name'][$i], PATHINFO_EXTENSION));
-                $fn = 'img-'.time().'-'.strtolower(str_replace(' ','-',$req->namaPaket)).'-'.$i.'.'.$imageFileType;
-                $newFilePath = 'public/uploads/img_paket/'. $fn;
-              if(move_uploaded_file($tmpFilePath, $newFilePath)) {
-                PaketImage::create([
-                    'ip_paket' => $req->id,
-                    'img' => $newFilePath,
-                ]);         
-              }
-              else{
-                  echo 'gagal';
-              }
-            }
-        }
-        echo $total;
-        // if ($total>0) {
-        //     Paket::updateOrCreate(
-        //         ['id' => $req->id],
-        //         [
-        //             'cover_img' => $newFilePath,
-        //             'noted' => $req->noted,
-        //             'desc' => $req->desc,
-        //         ]
-        //     );
-        // }
-        // else{    
-        //     Paket::updateOrCreate(
-        //         ['id' => $req->id],
-        //         [
-        //             'noted' => $req->noted,
-        //             'desc' => $req->desc,
-        //         ]
-        //     );
-        // }
-        // Session::flash('sukses','Menyimpan data berhasil');
-        // return redirect()->route('paket.index')->with('success', 'Post tersimpan');
+        Paket::updateOrCreate(
+            ['id' => $req->id],
+            [
+                'noted' => $req->noted,
+                'desc' => $req->desc,
+            ]
+        );
+        Session::flash('sukses','Menyimpan data berhasil');
+        return redirect()->route('paket.index')->with('success', 'Post tersimpan');
     }
     public function deskripsi($id)
     {
         $paket = Paket::find($id);
         $data = array('des' => $paket->desc, 'judul' => $paket->nama, 'id' => $id, 'cover_img' => $paket->cover_img);
         return view('admin.des')->with($data);
+    }
+    public function paketImg($id)
+    {
+        $img = PaketImage::where('ip_paket', $id)->get();
+        $paket = Paket::findOrFail($id);
+        $data = array('paket' => $paket, 'img' => $img );
+        return view('admin.paket-img')->with($data);
+    }
+    public function desImg($id)
+    {
+        PaketImage::findOrFail($id)->delete();
+        Session::flash('sukses','Menyimpan data berhasil');
+        return back()->with('success', 'Post tersimpan');
+    }
+    public function saveImg(Request $req)
+    {
+        $tujuan_upload = 'public/uploads/img_paket';
+        if (isset($req->cover_img)) {
+            try {
+                $paket = Paket::find($req->id);
+                $file = $req->file('cover_img');
+                $fn = 'img-'.time().'-'.strtolower(str_replace(' ','-',$paket->name)).'-'.$req->idx.'.'.$file->guessExtension();
+                $file->move($tujuan_upload,$fn);
+                PaketImage::create([
+                    'ip_paket' => $req->id,
+                    'img' => $fn,
+                ]);
+                $paket->cover_img = $fn;
+                $paket->save();
+                Session::flash('sukses','Menyimpan data berhasil');
+            } catch (\Throwable $th) {
+                Session::flash('error',$th);
+            }
+            
+        }
+        else{
+            Session::flash('erorr','Menyimpan data gagal');
+        }
+        return back()->with('success', 'Post tersimpan');
     }
     public function tPd(Request $req)
     {
