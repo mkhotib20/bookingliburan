@@ -122,7 +122,7 @@
                         <tbody>
                             @foreach ($img as $item => $val)
                                 <tr>
-                                    <td>{{$index++}}</td>
+                                    <td>{{$val->id}}</td>
                                     <td><img style="width: 200px" src="{{url('public/uploads/img_paket/'.$val->img)}}" alt=""></td>
                                     <td><a href="{{url('mitra/paket/img/des/'.$val->id)}}" class="btn btn-light"><span class="fas fa-trash"></span></a></td>
                                 </tr>

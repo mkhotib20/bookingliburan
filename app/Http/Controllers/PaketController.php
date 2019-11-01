@@ -222,7 +222,7 @@ class PaketController extends Controller
             try {
                 $paket = Paket::find($req->id);
                 $file = $req->file('cover_img');
-                $fn = 'img-'.time().'-'.strtolower(str_replace(' ','-',$paket->name)).'-'.$req->idx.'.'.$file->guessExtension();
+                $fn = 'img-'.time().'-'.strtolower(str_replace(' ','-',$paket->nama)).'-'.$req->idx.'.'.$file->guessExtension();
                 $file->move($tujuan_upload,$fn);
                 PaketImage::create([
                     'ip_paket' => $req->id,

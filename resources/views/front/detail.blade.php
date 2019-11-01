@@ -258,7 +258,7 @@
    <script>
        function select(el) {
            var src = el.src
-           el.src = $('#mainImg').attr('src')
+        //    el.src = $('#mainImg').attr('src')
            $('#mainImg').attr('src', src)
        }
        var menus = ["#home", "#iten", "#contact", "#profile", "#ket"]
