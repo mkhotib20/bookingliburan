@@ -42,7 +42,7 @@
                 <div class="col-md-12 mb-3 my-2">
                   <label for="">Noted (Informasi Tambahan)</label>  
                     <textarea name="noted" class="simpleTxt" placeholder="Place some text here"
-                    style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{$des}}</textarea>
+                    style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{$noted}}</textarea>
                 </div>
                 <div class="col-md-12 mb-3 my-2">
                   <label for="">Deskripsi Paket</label>  

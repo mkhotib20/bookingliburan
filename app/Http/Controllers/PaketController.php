@@ -199,7 +199,7 @@ class PaketController extends Controller
     public function deskripsi($id)
     {
         $paket = Paket::find($id);
-        $data = array('des' => $paket->desc, 'judul' => $paket->nama, 'id' => $id, 'cover_img' => $paket->cover_img);
+        $data = array('noted' => $paket->noted,'des' => $paket->desc, 'judul' => $paket->nama, 'id' => $id, 'cover_img' => $paket->cover_img);
         return view('admin.des')->with($data);
     }
     public function paketImg($id)
